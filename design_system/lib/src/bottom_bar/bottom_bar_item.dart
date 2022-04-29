@@ -1,11 +1,13 @@
-import '../theme/colors/app_base_colors.dart';
-import '../utils/app_spacers.dart';
 import 'package:flutter/material.dart';
+
+import '../../design_system.dart';
 
 class AppBottomBarItemModel {
   final String text;
   final IconData icon;
   final VoidCallback onTap;
+  final bool hasNotification;
+
   final String? key;
 
   AppBottomBarItemModel({
@@ -13,6 +15,7 @@ class AppBottomBarItemModel {
     required this.icon,
     required this.onTap,
     this.key,
+    this.hasNotification = false,
   });
 }
 
@@ -23,12 +26,14 @@ class AppBottomBarItem extends StatelessWidget {
     required this.onTap,
     required this.icon,
     required this.text,
+    required this.hasNotification,
   }) : super(key: key);
 
   final bool enabled;
   final VoidCallback onTap;
   final IconData icon;
   final String text;
+  final bool hasNotification;
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +47,28 @@ class AppBottomBarItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              size: 20,
-              color: enabled
-                  ? theme.colorScheme.onSurface
-                  : AppBaseColors.placeholder,
-            ),
+            if (!hasNotification)
+              Icon(
+                icon,
+                size: 20,
+                color: enabled
+                    ? theme.colorScheme.onSurface
+                    : AppBaseColors.placeholder,
+              ),
+            if (hasNotification)
+              Badge(
+                animationType: BadgeAnimationType.scale,
+                animationDuration: const Duration(milliseconds: 1),
+                position: BadgePosition.topEnd(end: -8, top: -4),
+                badgeColor: context.colorScheme.primary,
+                child: Icon(
+                  icon,
+                  size: 20,
+                  color: enabled
+                      ? theme.colorScheme.onSurface
+                      : AppBaseColors.placeholder,
+                ),
+              ),
             SpacerHeight4,
             Text(
               text,

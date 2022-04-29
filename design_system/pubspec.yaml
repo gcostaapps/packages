@@ -12,6 +12,10 @@ dependencies:
   animations: ^2.0.2
   #Used for display helper messages
   flash: ^1.5.2+2 #Maintain this version
+  #Badges for bottom bar
+  badges: ^2.0.2
+  #Perfomance Monitoring
+  statsfl: ^2.3.0
 
 dev_dependencies:
   flutter_test:

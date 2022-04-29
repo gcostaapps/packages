@@ -53,6 +53,7 @@ class AppBottomBarState extends State<AppBottomBar> {
                     enabled: i == _currentIndex,
                     icon: widget.items[i].icon,
                     text: widget.items[i].text,
+                    hasNotification: widget.items[i].hasNotification,
                     onTap: () => selectBottomBarItem(i),
                   ),
                 ),

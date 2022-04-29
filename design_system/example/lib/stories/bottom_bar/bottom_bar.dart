@@ -45,6 +45,7 @@ class BottomBarExample extends HookWidget {
               AppBottomBarItemModel(
                 text: 'Perfil',
                 icon: Icons.repeat,
+                hasNotification: true,
                 onTap: () => selectedPage.value = 3,
               ),
             ],

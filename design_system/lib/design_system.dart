@@ -11,3 +11,6 @@ export 'src/floating_items/floating.dart';
 export 'src/premium_banner/premium_banner.dart';
 export 'src/theme/theme.dart';
 export 'src/utils/utils.dart';
+
+export 'package:badges/badges.dart';
+export 'package:statsfl/statsfl.dart';
