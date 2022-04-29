@@ -13,6 +13,7 @@ class CustomElevatedButton extends StatelessWidget {
     this.buttonSize = ButtonSize.medium,
     this.isPrimary = true,
     this.borderRadius = 12,
+    this.color,
   }) : super(key: key);
 
   final String text;
@@ -23,16 +24,25 @@ class CustomElevatedButton extends StatelessWidget {
   final ButtonSize buttonSize;
   final bool isPrimary;
   final double borderRadius;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
+    Color? shadowColor;
+    if (onTap != null) {
+      if (isPrimary) {
+        shadowColor = context.theme.primaryColorLight.withOpacity(
+          context.theme.brightness == Brightness.light ? 0.75 : 0.1,
+        );
+      } else if (color != null) {
+        shadowColor = color!.withOpacity(
+          context.theme.brightness == Brightness.light ? 0.75 : 0.1,
+        );
+      }
+    }
     return ClickableCard(
       borderRadius: BorderRadius.circular(borderRadius),
-      shadowColor: (onTap != null && isPrimary)
-          ? context.theme.primaryColorLight.withOpacity(
-              context.theme.brightness == Brightness.light ? 0.75 : 0.1,
-            )
-          : null,
+      shadowColor: shadowColor,
       onTap: onTap,
       child: Container(
         color: onTap != null
@@ -52,6 +62,7 @@ class CustomElevatedButton extends StatelessWidget {
           isPrimary: isPrimary,
           iconData: iconData,
           buttonSize: buttonSize,
+          color: color,
         ),
       ),
     );

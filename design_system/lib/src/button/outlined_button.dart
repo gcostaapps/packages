@@ -14,6 +14,7 @@ class CustomOutlinedButton extends StatelessWidget {
     this.buttonSize = ButtonSize.medium,
     this.isPrimary = true,
     this.radius = 6,
+    this.color,
   }) : super(key: key);
 
   final String text;
@@ -24,6 +25,7 @@ class CustomOutlinedButton extends StatelessWidget {
   final ButtonSize buttonSize;
   final bool isPrimary;
   final double radius;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +37,7 @@ class CustomOutlinedButton extends StatelessWidget {
           child: Ink(
             decoration: BoxDecoration(
               color: onTap != null
-                  ? isPrimary
-                      ? null
-                      : context.theme.cardColor
+                  ? color ?? (isPrimary ? null : context.theme.cardColor)
                   : context.theme.disabledColor,
               gradient:
                   onTap != null && isPrimary ? context.linearGradient : null,
@@ -45,7 +45,7 @@ class CustomOutlinedButton extends StatelessWidget {
                   ? null
                   : Border.all(
                       color: onTap != null
-                          ? context.theme.colorScheme.onSurface
+                          ? color ?? context.theme.colorScheme.onSurface
                           : context.theme.disabledColor,
                       width: 2,
                     ),
@@ -60,6 +60,7 @@ class CustomOutlinedButton extends StatelessWidget {
               isPrimary: isPrimary,
               iconData: iconData,
               buttonSize: buttonSize,
+              color: color,
             ),
           ),
         ),
