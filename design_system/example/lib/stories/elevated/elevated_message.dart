@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final elevatedMessagesStory = Story(
-  name: 'Widgets/Elevated Messages',
+  name: 'Widgets/Messages and Dialogs/Elevated Messages',
   builder: (BuildContext context) {
     final title = context.knobs.text(label: 'Title', initial: '');
     final message =

@@ -9,9 +9,9 @@ import 'package:flutter/material.dart';
 import '../../design_system.dart';
 
 class AppDialogTransition {
-  static Future<T?> showDialog<T>({
-    required BuildContext context,
-    required Widget child,
+  static Future<T?> showDialog<T>(
+    BuildContext context,
+    Widget child, {
     bool barrierDismissible = true,
     Color? barrierColor = AppBaseColors.darkSurfaceColors,
     String? barrierLabel,

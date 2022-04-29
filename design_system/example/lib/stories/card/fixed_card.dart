@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final fixedCardStory = Story(
-  name: 'Widgets/Fixed Card',
+  name: 'Widgets/Card/Fixed Card',
   builder: (BuildContext context) {
     final colorful = context.knobs.boolean(label: 'Colorful', initial: false);
 

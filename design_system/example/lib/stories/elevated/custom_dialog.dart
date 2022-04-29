@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final customDialogStory = Story(
-  name: 'Widgets/Dialog Wrapper',
+  name: 'Widgets/Messages and Dialogs Wrapper',
   builder: (BuildContext context) {
     return CustomOutlinedButton(
-      text: 'Widgets/Show Message',
-      onTap: () => AppDialogTransition.showDialogBlurred(
+      text: 'Show Message',
+      onTap: () => AppDialogTransition.showDialog(
         context,
         Column(
           mainAxisSize: MainAxisSize.min,

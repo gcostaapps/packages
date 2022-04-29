@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final outlinedButtonStory = Story(
-  name: 'Widgets/Outlined Button',
+  name: 'Widgets/Buttons/Outlined Button',
   builder: (BuildContext context) {
     final enabled = context.knobs.boolean(label: 'Enabled', initial: true);
     final wide = context.knobs.boolean(label: 'Wide', initial: true);

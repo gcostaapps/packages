@@ -7,12 +7,14 @@ class ThemeController extends ChangeNotifier {
       primarySwatch: primarySwatch,
       secondarySwatch: secondarySwatch ?? primarySwatch,
       brightness: Brightness.light,
+      fontFamily: 'Montserrat',
     );
 
     darkTheme = AppTheme().buildThemeData(
       primarySwatch: primarySwatch,
       secondarySwatch: secondarySwatch ?? primarySwatch,
       brightness: Brightness.dark,
+      fontFamily: 'Montserrat',
     );
   }
 
@@ -22,12 +24,14 @@ class ThemeController extends ChangeNotifier {
       primarySwatch: primarySwatch,
       secondarySwatch: secondarySwatch ?? primarySwatch,
       brightness: Brightness.light,
+      fontFamily: 'Montserrat',
     );
 
     darkTheme = AppTheme().buildThemeData(
       primarySwatch: primarySwatch,
       secondarySwatch: secondarySwatch ?? primarySwatch,
       brightness: Brightness.dark,
+      fontFamily: 'Montserrat',
     );
     notifyListeners();
   }

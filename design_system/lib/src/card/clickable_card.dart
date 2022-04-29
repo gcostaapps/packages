@@ -63,28 +63,31 @@ class _ClickableCardState extends State<ClickableCard>
       );
     }
 
-    return GestureDetector(
-      onTapDown: (_) => _controller.forward(),
-      onTapUp: (_) => _controller.reverse(),
-      onTapCancel: () => _controller.reverse(),
-      onTap: widget.onTap,
-      child: AnimatedBuilder(
-        animation: _controller,
-        builder: (context, child) {
-          return Transform.scale(
-            scale: 1 - 0.03 * _controller.value,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: widget.borderRadius ??
-                    const BorderRadius.all(Radius.circular(4)),
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTapDown: (_) => _controller.forward(),
+        onTapUp: (_) => _controller.reverse(),
+        onTapCancel: () => _controller.reverse(),
+        onTap: widget.onTap,
+        child: AnimatedBuilder(
+          animation: _controller,
+          builder: (context, child) {
+            return Transform.scale(
+              scale: 1 - 0.03 * _controller.value,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: widget.borderRadius ??
+                      const BorderRadius.all(Radius.circular(4)),
+                ),
+                elevation: 16 - 8 * _controller.value,
+                shadowColor: shadowColorWithOpacity,
+                child: child,
               ),
-              elevation: 16 - 8 * _controller.value,
-              shadowColor: shadowColorWithOpacity,
-              child: child,
-            ),
-          );
-        },
-        child: widget.child,
+            );
+          },
+          child: widget.child,
+        ),
       ),
     );
   }

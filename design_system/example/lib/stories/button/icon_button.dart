@@ -4,7 +4,7 @@ import 'package:pegasus_icons/pegasus_icons.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final iconButtonStory = Story(
-  name: 'Widgets/Icon Button',
+  name: 'Widgets/Buttons/Icon Button',
   builder: (BuildContext context) {
     final enabled = context.knobs.boolean(label: 'Enabled', initial: true);
     final elevation = context.knobs.boolean(label: 'Elevation', initial: true);

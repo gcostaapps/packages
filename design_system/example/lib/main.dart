@@ -45,6 +45,8 @@ class _MyAppState extends State<MyApp> {
     AppMessageHelper.init(context);
     return Consumer<ThemeController>(
       builder: (context, value, child) => Storybook(
+        wrapperBuilder: (context, child) =>
+            materialWrapper(context, child, value),
         plugins: _plugins,
         stories: [
           ...styleguideStories,
@@ -60,4 +62,19 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
+
+  Widget materialWrapper(
+          BuildContext context, Widget? child, ThemeController theme) =>
+      MaterialApp(
+        theme: theme.lightTheme,
+        darkTheme: theme.darkTheme,
+        debugShowCheckedModeBanner: false,
+        useInheritedMediaQuery: true,
+        home: Builder(builder: (context) {
+          return Scaffold(
+            backgroundColor: Theme.of(context).backgroundColor,
+            body: Center(child: child),
+          );
+        }),
+      );
 }

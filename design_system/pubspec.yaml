@@ -26,43 +26,43 @@ flutter:
   fonts:
   - family: Poppins
     fonts:
-      - asset: lib/fonts/Poppins-Thin.ttf
+      - asset: assets/fonts/poppins/Poppins-Thin.ttf
         weight: 100
-      - asset: lib/fonts/Poppins-ExtraLight.ttf
+      - asset: assets/fonts/poppins/Poppins-ExtraLight.ttf
         weight: 200
-      - asset: lib/fonts/Poppins-Light.ttf
+      - asset: assets/fonts/poppins/Poppins-Light.ttf
         weight: 300
-      - asset: lib/fonts/Poppins-Regular.ttf
+      - asset: assets/fonts/poppins/Poppins-Regular.ttf
         weight: 400
-      - asset: lib/fonts/Poppins-Medium.ttf
+      - asset: assets/fonts/poppins/Poppins-Medium.ttf
         weight: 500
-      - asset: lib/fonts/Poppins-Semibold.ttf
+      - asset: assets/fonts/poppins/Poppins-Semibold.ttf
         weight: 600
-      - asset: lib/fonts/Poppins-Bold.ttf
+      - asset: assets/fonts/poppins/Poppins-Bold.ttf
         weight: 700
-      - asset: lib/fonts/Poppins-ExtraBold.ttf
+      - asset: assets/fonts/poppins/Poppins-ExtraBold.ttf
         weight: 800
-      - asset: lib/fonts/Poppins-Black.ttf
+      - asset: assets/fonts/poppins/Poppins-Black.ttf
         weight: 900
   - family: Montserrat
     fonts:
-      - asset: assets/fonts/Montserrat-Thin.ttf
+      - asset: assets/fonts/montserrat/Montserrat-Thin.ttf
         weight: 100
-      - asset: assets/fonts/Montserrat-ExtraLight.ttf
+      - asset: assets/fonts/montserrat/Montserrat-ExtraLight.ttf
         weight: 200
-      - asset: assets/fonts/Montserrat-Light.ttf
+      - asset: assets/fonts/montserrat/Montserrat-Light.ttf
         weight: 300
-      - asset: assets/fonts/Montserrat-Regular.ttf
+      - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
         weight: 400
-      - asset: assets/fonts/Montserrat-Medium.ttf
+      - asset: assets/fonts/montserrat/Montserrat-Medium.ttf
         weight: 500
-      - asset: assets/fonts/Montserrat-Semibold.ttf
+      - asset: assets/fonts/montserrat/Montserrat-Semibold.ttf
         weight: 600
-      - asset: assets/fonts/Montserrat-Bold.ttf
+      - asset: assets/fonts/montserrat/Montserrat-Bold.ttf
         weight: 700
-      - asset: assets/fonts/Montserrat-ExtraBold.ttf
+      - asset: assets/fonts/montserrat/Montserrat-ExtraBold.ttf
         weight: 800
-      - asset: assets/fonts/Montserrat-Black.ttf
+      - asset: assets/fonts/montserrat/Montserrat-Black.ttf
         weight: 900
 
   # To add assets to your package, add an assets section, like this:

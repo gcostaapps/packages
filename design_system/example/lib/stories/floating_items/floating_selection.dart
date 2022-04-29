@@ -4,7 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final floatingSelectionStory = Story(
-  name: 'Widgets/Floating Selection',
+  name: 'Widgets/Floating/Floating Selection',
   builder: (BuildContext context) {
     return const FloatingSelectionExample();
   },

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final textButtonStory = Story(
-  name: 'Widgets/Text Button',
+  name: 'Widgets/Buttons/Text Button',
   builder: (BuildContext context) {
     final enabled = context.knobs.boolean(label: 'Enabled', initial: true);
     final text = context.knobs.text(label: 'Text', initial: 'CONTINUAR');

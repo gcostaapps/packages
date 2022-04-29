@@ -5,7 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final floatingTabStory = Story(
-  name: 'Widgets/Floating Tab Item',
+  name: 'Widgets/Floating/Floating Tab Item',
   builder: (BuildContext context) {
     return const FloatingTabExample();
   },

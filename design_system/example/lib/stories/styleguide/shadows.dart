@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final shadowsStory = Story(
-  name: 'Widgets/Shadows',
+  name: 'Styleguide/Shadows',
   builder: (BuildContext context) {
     final shadowColor = context.knobs.options(
       label: 'Shadow',

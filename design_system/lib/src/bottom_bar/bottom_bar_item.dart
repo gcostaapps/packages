@@ -36,6 +36,7 @@ class AppBottomBarItem extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        height: kBottomNavigationBarHeight,
         color: Colors.transparent,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

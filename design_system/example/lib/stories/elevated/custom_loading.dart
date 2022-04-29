@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final customLoadingStory = Story(
-  name: 'Widgets/App Loading',
+  name: 'Widgets/Messages and Dialogs/App Loading',
   builder: (BuildContext context) {
     return CustomOutlinedButton(
       text: 'Show Loading',

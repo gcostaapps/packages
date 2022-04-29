@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final themeStory = Story(
-  name: 'Theme',
+  name: 'Styleguide/Theme',
   builder: (BuildContext context) {
     return Wrap(
       children: [

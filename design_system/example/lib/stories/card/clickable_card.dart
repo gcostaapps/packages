@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final clickableCardStory = Story(
-  name: 'Widgets/Clickable Card',
+  name: 'Widgets/Card/Clickable Card',
   builder: (BuildContext context) {
     final theme = Theme.of(context);
     final colorful =

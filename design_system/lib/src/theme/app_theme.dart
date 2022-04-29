@@ -99,11 +99,12 @@ class AppTheme {
 
     return ThemeData(
       //Always have the density of smartphones, even in desktop
-      visualDensity: VisualDensity.standard,
+      //visualDensity: VisualDensity.standard,
       cardTheme: cardTheme,
       textButtonTheme: textButtonTheme,
       iconTheme: iconTheme,
       sliderTheme: sliderTheme,
+
       appBarTheme: appBarTheme,
       toggleableActiveColor: _primaryColor,
       errorColor: _doTrackColors.errorColor,

@@ -68,48 +68,52 @@ class BaseButton extends StatelessWidget {
           )
         : null;
 
-    return SizedBox(
-      height: height,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: wide ? MainAxisSize.max : MainAxisSize.min,
-          children: [
-            if (iconData != null)
-              SizedBox(
-                width: iconPosition == IconPosition.left || wide ? iconSize : 0,
-                child: iconPosition == IconPosition.left ? icon : null,
-              ),
-            Expanded(
-              flex: wide ? 1 : 0,
-              child: Padding(
-                padding: iconData == null
-                    ? const EdgeInsets.only(top: 4)
-                    : EdgeInsets.fromLTRB(iconPadding, 4, iconPadding, 0),
-                child: ConstrainedBox(
-                  constraints:
-                      BoxConstraints(maxWidth: iconData != null ? 264 : 360),
-                  child: Text(
-                    text,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.button!.copyWith(
-                      color: buttonColor,
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: SizedBox(
+        height: height,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: wide ? MainAxisSize.max : MainAxisSize.min,
+            children: [
+              if (iconData != null)
+                SizedBox(
+                  width:
+                      iconPosition == IconPosition.left || wide ? iconSize : 0,
+                  child: iconPosition == IconPosition.left ? icon : null,
+                ),
+              Expanded(
+                flex: wide ? 1 : 0,
+                child: Padding(
+                  padding: iconData == null
+                      ? const EdgeInsets.only(top: 3)
+                      : EdgeInsets.fromLTRB(iconPadding, 3, iconPadding, 0),
+                  child: ConstrainedBox(
+                    constraints:
+                        BoxConstraints(maxWidth: iconData != null ? 264 : 360),
+                    child: Text(
+                      text,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.button!.copyWith(
+                        color: buttonColor,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            if (iconData != null)
-              SizedBox(
-                width:
-                    iconPosition == IconPosition.right || wide ? iconSize : 0,
-                child: iconPosition == IconPosition.right ? icon : null,
-              ),
-          ],
+              if (iconData != null)
+                SizedBox(
+                  width:
+                      iconPosition == IconPosition.right || wide ? iconSize : 0,
+                  child: iconPosition == IconPosition.right ? icon : null,
+                ),
+            ],
+          ),
         ),
       ),
     );

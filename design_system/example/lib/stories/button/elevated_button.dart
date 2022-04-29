@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final elevatedButtonStory = Story(
-  name: 'Widgets/Elevated Button',
+  name: 'Widgets/Buttons/Elevated Button',
   builder: (BuildContext context) {
     final enabled = context.knobs.boolean(label: 'Enabled', initial: true);
     final radius =
