@@ -9,7 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flash: ^1.5.2+2
+  animations: ^2.0.2
+  #Used for display helper messages
+  flash: ^1.5.2+2 #Maintain this version
 
 dev_dependencies:
   flutter_test:
