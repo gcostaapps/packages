@@ -9,6 +9,9 @@ class AppColors {
 
   bool get _isLight => brightness == Brightness.light;
 
+  static Color statusBarColor(BuildContext context, bool isDesktop) =>
+      isDesktop ? Colors.red : Theme.of(context).colorScheme.background;
+
   Color get surfaceColor50 => _isLight
       ? AppBaseColors.lightSurfaceColors.shade50
       : AppBaseColors.darkSurfaceColors.shade50;
