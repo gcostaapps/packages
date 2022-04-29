@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "pegasus_icons"
+		},
+		{
+			"path": "services_core"
+		},
+		{
+			"path": "thememode_selector"
+		},
+		{
+			"path": "design_system"
+		}
+	],
+	"settings": {
+		"dart.flutterSdkPath": "C:\\Users\\gabri\\fvm\\versions\\stable"
+	}
+}

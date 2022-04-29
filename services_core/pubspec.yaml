@@ -1,0 +1,32 @@
+name: services_core
+description: A new Flutter package project.
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  #Logs
+  logger: ^1.1.0
+  #Analytics
+  mixpanel_analytics: ^2.1.1
+  firebase_analytics: ^9.1.2
+  #Configuration
+  flutter_dotenv: ^5.0.2
+  #Local Storage
+  shared_preferences: ^2.0.10
+  #Device Info
+  universal_platform: ^1.0.0+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+  dart_code_metrics: ^4.8.1
+
+
+flutter:

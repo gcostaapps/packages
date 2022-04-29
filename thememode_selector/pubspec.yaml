@@ -1,0 +1,16 @@
+name: thememode_selector
+description: A widget to select between light and dark ThemeMode (in development, but working fine)
+version: 0.1.0
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_hooks: ^0.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+

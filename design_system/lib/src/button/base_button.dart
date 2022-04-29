@@ -1,0 +1,117 @@
+import '../theme/colors/app_base_colors.dart';
+import 'package:flutter/material.dart';
+
+enum IconPosition {
+  right,
+  left,
+}
+
+enum ButtonSize {
+  small,
+  medium,
+}
+
+class BaseButton extends StatelessWidget {
+  const BaseButton({
+    Key? key,
+    required this.text,
+    this.iconPosition = IconPosition.right,
+    required this.enabled,
+    this.iconData,
+    this.isPrimary = true,
+    required this.wide,
+    this.color,
+    this.buttonSize = ButtonSize.medium,
+  }) : super(key: key);
+
+  final String text;
+  final IconPosition iconPosition;
+  final bool enabled;
+  final IconData? iconData;
+  final bool isPrimary;
+  final bool wide;
+  final Color? color;
+  final ButtonSize buttonSize;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    late double height;
+    late double iconSize;
+    late double iconPadding;
+    switch (buttonSize) {
+      case ButtonSize.small:
+        height = 24;
+        iconSize = 20;
+        iconPadding = 8;
+        break;
+      case ButtonSize.medium:
+        height = 40;
+        iconSize = 24;
+        iconPadding = 12;
+        break;
+    }
+
+    final buttonColor = color ??
+        (enabled
+            ? isPrimary
+                ? theme.colorScheme.onPrimary
+                : theme.colorScheme.onSurface
+            : AppBaseColors.placeholder);
+
+    final icon = iconData != null
+        ? Icon(
+            iconData,
+            size: iconSize,
+            color: buttonColor,
+          )
+        : null;
+
+    return SizedBox(
+      height: height,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: wide ? MainAxisSize.max : MainAxisSize.min,
+          children: [
+            if (iconData != null)
+              SizedBox(
+                width: iconPosition == IconPosition.left || wide ? iconSize : 0,
+                child: iconPosition == IconPosition.left ? icon : null,
+              ),
+            Expanded(
+              flex: wide ? 1 : 0,
+              child: Padding(
+                padding: iconData == null
+                    ? const EdgeInsets.only(top: 4)
+                    : EdgeInsets.fromLTRB(iconPadding, 4, iconPadding, 0),
+                child: ConstrainedBox(
+                  constraints:
+                      BoxConstraints(maxWidth: iconData != null ? 264 : 360),
+                  child: Text(
+                    text,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.button!.copyWith(
+                      color: buttonColor,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            if (iconData != null)
+              SizedBox(
+                width:
+                    iconPosition == IconPosition.right || wide ? iconSize : 0,
+                child: iconPosition == IconPosition.right ? icon : null,
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
