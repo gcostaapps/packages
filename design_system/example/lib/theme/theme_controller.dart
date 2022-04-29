@@ -1,20 +1,22 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
+String fontFamily = 'Montserrat';
+
 class ThemeController extends ChangeNotifier {
   ThemeController(this.primarySwatch, {this.secondarySwatch}) {
     lightTheme = AppTheme().buildThemeData(
       primarySwatch: primarySwatch,
       secondarySwatch: secondarySwatch ?? primarySwatch,
       brightness: Brightness.light,
-      fontFamily: 'Montserrat',
+      fontFamily: fontFamily,
     );
 
     darkTheme = AppTheme().buildThemeData(
       primarySwatch: primarySwatch,
       secondarySwatch: secondarySwatch ?? primarySwatch,
       brightness: Brightness.dark,
-      fontFamily: 'Montserrat',
+      fontFamily: fontFamily,
     );
   }
 
@@ -24,14 +26,14 @@ class ThemeController extends ChangeNotifier {
       primarySwatch: primarySwatch,
       secondarySwatch: secondarySwatch ?? primarySwatch,
       brightness: Brightness.light,
-      fontFamily: 'Montserrat',
+      fontFamily: fontFamily,
     );
 
     darkTheme = AppTheme().buildThemeData(
       primarySwatch: primarySwatch,
       secondarySwatch: secondarySwatch ?? primarySwatch,
       brightness: Brightness.dark,
-      fontFamily: 'Montserrat',
+      fontFamily: fontFamily,
     );
     notifyListeners();
   }

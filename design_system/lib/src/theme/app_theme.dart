@@ -137,7 +137,7 @@ class AppTheme {
       brightness: brightness,
       textTheme: AppTypography().buildTextTheme(
         _doTrackColors.textColor100,
-        fontFamily: fontFamily ?? 'Poppins',
+        fontFamily: fontFamily ?? 'Montserrat',
       ),
     );
   }
