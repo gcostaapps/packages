@@ -14,6 +14,7 @@ class AppTypography {
         height: 1.17,
         fontWeight: FontWeight.w400,
         color: textColor,
+        letterSpacing: -1.5,
       ),
       headline2: TextStyle(
         fontFamily: fontFamily,
@@ -21,6 +22,7 @@ class AppTypography {
         height: 1.2,
         fontWeight: FontWeight.w500,
         color: textColor,
+        letterSpacing: -0.5,
       ),
       headline3: TextStyle(
         fontFamily: fontFamily,
@@ -28,6 +30,7 @@ class AppTypography {
         height: 1,
         fontWeight: FontWeight.w400,
         color: textColor,
+        letterSpacing: 0,
       ),
       headline4: TextStyle(
         fontFamily: fontFamily,
@@ -35,6 +38,7 @@ class AppTypography {
         height: 1.19,
         fontWeight: FontWeight.w400,
         color: textColor,
+        letterSpacing: 0.25,
       ),
       headline5: TextStyle(
         fontFamily: fontFamily,
@@ -42,6 +46,7 @@ class AppTypography {
         height: 1.17,
         fontWeight: FontWeight.w400,
         color: textColor,
+        letterSpacing: 0,
       ),
       headline6: TextStyle(
         fontFamily: fontFamily,
@@ -49,6 +54,7 @@ class AppTypography {
         height: 1.2,
         fontWeight: FontWeight.w400,
         color: textColor,
+        letterSpacing: 0.15,
       ),
       subtitle1: TextStyle(
         fontFamily: fontFamily,
@@ -64,6 +70,7 @@ class AppTypography {
         height: 1.14,
         fontWeight: FontWeight.w500,
         color: textColor,
+        letterSpacing: 0.1,
       ),
       bodyText1: TextStyle(
         fontFamily: fontFamily,
@@ -71,22 +78,23 @@ class AppTypography {
         height: 1.5,
         fontWeight: FontWeight.w400,
         color: textColor,
+        letterSpacing: 0.5,
       ),
       bodyText2: TextStyle(
         fontFamily: fontFamily,
         fontSize: 14,
         height: 1.5,
-        letterSpacing: 0.25,
         fontWeight: FontWeight.w400,
         color: textColor,
+        letterSpacing: 0.25,
       ),
       button: TextStyle(
         fontFamily: fontFamily,
         fontSize: 16,
         height: 1,
-        letterSpacing: 1,
         fontWeight: FontWeight.w500,
         color: textColor,
+        letterSpacing: 1.25,
       ),
       caption: TextStyle(
         fontFamily: fontFamily,
@@ -94,6 +102,7 @@ class AppTypography {
         height: 1.33,
         fontWeight: FontWeight.w400,
         color: textColor,
+        letterSpacing: 0.4,
       ),
       overline: TextStyle(
         fontFamily: fontFamily,
@@ -101,6 +110,7 @@ class AppTypography {
         height: 1,
         fontWeight: FontWeight.w400,
         color: textColor,
+        letterSpacing: 1.5,
       ),
     );
   }
