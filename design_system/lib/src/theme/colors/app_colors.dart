@@ -12,6 +12,39 @@ class AppColors {
   static Color statusBarColor(BuildContext context, bool isDesktop) =>
       isDesktop ? Colors.red : Theme.of(context).colorScheme.background;
 
+  static Map<Color, Color> primaryColorToLightColor = {
+    AppBaseColors.esmerald.shade700: AppBaseColors.esmerald.shade100,
+    AppBaseColors.ocean.shade500: AppBaseColors.ocean.shade100,
+    AppBaseColors.lavender.shade500: AppBaseColors.lavender.shade100,
+    AppBaseColors.magenta.shade500: AppBaseColors.magenta.shade100,
+    AppBaseColors.chili.shade500: AppBaseColors.chili.shade100,
+    AppBaseColors.tiger.shade500: AppBaseColors.tiger.shade100,
+    AppBaseColors.lemon.shade700: AppBaseColors.lemon.shade100,
+    AppBaseColors.warm.shade500: AppBaseColors.warm.shade100,
+  };
+
+  static Map<Color, Color> primaryColorToColorShade200 = {
+    AppBaseColors.esmerald.shade700: AppBaseColors.esmerald.shade200,
+    AppBaseColors.ocean.shade500: AppBaseColors.ocean.shade200,
+    AppBaseColors.lavender.shade500: AppBaseColors.lavender.shade200,
+    AppBaseColors.magenta.shade500: AppBaseColors.magenta.shade200,
+    AppBaseColors.chili.shade500: AppBaseColors.chili.shade200,
+    AppBaseColors.tiger.shade500: AppBaseColors.tiger.shade200,
+    AppBaseColors.lemon.shade700: AppBaseColors.lemon.shade200,
+    AppBaseColors.warm.shade500: AppBaseColors.warm.shade200,
+  };
+
+  static Map<Color, Color> primaryColorToSecondaryLightColor = {
+    AppBaseColors.esmerald.shade700: AppBaseColors.esmerald.shade200,
+    AppBaseColors.ocean.shade500: AppBaseColors.ocean.shade200,
+    AppBaseColors.lavender.shade500: AppBaseColors.lavender.shade200,
+    AppBaseColors.magenta.shade500: AppBaseColors.magenta.shade200,
+    AppBaseColors.chili.shade500: AppBaseColors.chili.shade200,
+    AppBaseColors.tiger.shade500: AppBaseColors.tiger.shade200,
+    AppBaseColors.lemon.shade700: AppBaseColors.lemon.shade200,
+    AppBaseColors.warm.shade500: AppBaseColors.warm.shade200,
+  };
+
   Color get surfaceColor50 => _isLight
       ? AppBaseColors.lightSurfaceColors.shade50
       : AppBaseColors.darkSurfaceColors.shade50;

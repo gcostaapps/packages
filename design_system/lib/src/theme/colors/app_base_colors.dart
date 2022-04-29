@@ -245,4 +245,58 @@ class AppBaseColors {
     800: Color(0xFF5B001E),
     900: Color(0xFF360113),
   };
+
+  static MaterialColor lemon = const MaterialColor(
+    0xFFF9F906,
+    lemonSwatch,
+  );
+
+  static const Map<int, Color> lemonSwatch = {
+    50: Color(0xFFFFFFF5),
+    100: Color(0xFFFEFEDC),
+    200: Color(0xFFFDFD9B),
+    300: Color(0xFFFBFB6A),
+    400: Color(0xFFFBFB51),
+    500: Color(0xFFF9F906),
+    600: Color(0xFFE0E005),
+    700: Color(0xFFC7C705),
+    800: Color(0xFF959504),
+    900: Color(0xFF646402),
+  };
+
+  static MaterialColor warm = const MaterialColor(
+    0xFF837C7C,
+    warmSwatch,
+  );
+
+  static const Map<int, Color> warmSwatch = {
+    50: Color(0xFFFAFAFA),
+    100: Color(0xFFEEEDED),
+    200: Color(0xFFCDCBCB),
+    300: Color(0xFFB5B0B0),
+    400: Color(0xFFA8A3A3),
+    500: Color(0xFF837C7C),
+    600: Color(0xFF767070),
+    700: Color(0xFF5C5757),
+    800: Color(0xFF413E3E),
+    900: Color(0xFF272525),
+  };
+
+  static const MaterialColor esmerald = MaterialColor(
+    0xFF00FFC7,
+    esmeraldSwatch,
+  );
+
+  static const Map<int, Color> esmeraldSwatch = {
+    50: Color(0xFFF5FFFD),
+    100: Color(0xFFDBFFF7),
+    200: Color(0xFF99FFE9),
+    300: Color(0xFF66FFDD),
+    400: Color(0xFF4CFFD8),
+    500: Color(0xFF00FFC7),
+    600: Color(0xFF00E5B3),
+    700: Color(0xFF00CC9F),
+    800: Color(0xFF009977),
+    900: Color(0xFF006650),
+  };
 }
