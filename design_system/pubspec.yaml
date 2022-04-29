@@ -1,6 +1,6 @@
 name: design_system
 description: A new Flutter package project.
-version: 0.0.2
+version: 0.0.3
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
