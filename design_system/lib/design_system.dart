@@ -14,3 +14,4 @@ export 'src/utils/utils.dart';
 
 export 'package:badges/badges.dart';
 export 'package:statsfl/statsfl.dart';
+export 'package:animations/animations.dart';
