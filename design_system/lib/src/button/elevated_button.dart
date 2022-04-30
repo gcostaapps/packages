@@ -30,12 +30,12 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Color? shadowColor;
     if (onTap != null) {
-      if (isPrimary) {
-        shadowColor = context.theme.primaryColorLight.withOpacity(
+      if (color != null) {
+        shadowColor = color!.withOpacity(
           context.theme.brightness == Brightness.light ? 0.75 : 0.1,
         );
-      } else if (color != null) {
-        shadowColor = color!.withOpacity(
+      } else if (isPrimary) {
+        shadowColor = context.theme.primaryColorLight.withOpacity(
           context.theme.brightness == Brightness.light ? 0.75 : 0.1,
         );
       }
@@ -46,9 +46,7 @@ class CustomElevatedButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         color: onTap != null
-            ? isPrimary
-                ? null
-                : color ?? context.theme.cardColor
+            ? color ?? (isPrimary ? null : context.theme.cardColor)
             : context.theme.disabledColor,
         decoration: onTap != null && isPrimary
             ? BoxDecoration(gradient: context.linearGradient)

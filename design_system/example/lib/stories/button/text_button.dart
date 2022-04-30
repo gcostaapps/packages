@@ -39,7 +39,7 @@ final textButtonStory = Story(
       onTap: enabled ? () => {} : null,
       iconData: icon,
       iconPosition: iconPosition,
-      color: color,
+      textColor: color,
     );
   },
 );

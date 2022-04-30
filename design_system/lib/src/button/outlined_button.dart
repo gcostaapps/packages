@@ -37,9 +37,7 @@ class CustomOutlinedButton extends StatelessWidget {
           child: Ink(
             decoration: BoxDecoration(
               color: onTap != null
-                  ? isPrimary
-                      ? null
-                      : color ?? context.theme.cardColor
+                  ? color ?? (isPrimary ? null : context.theme.cardColor)
                   : context.theme.disabledColor,
               gradient:
                   onTap != null && isPrimary ? context.linearGradient : null,

@@ -94,11 +94,11 @@ class AppColors {
       : AppBaseColors.darkTextColors.shade800;
 
   Color get errorColor => _isLight
-      ? AppBaseColors.errorColor.shade400
+      ? AppBaseColors.errorColor.shade300
       : AppBaseColors.errorColor.shade200;
 
   Color get successColor => _isLight
-      ? AppBaseColors.successColor.shade400
+      ? AppBaseColors.successColor.shade300
       : AppBaseColors.successColor.shade200;
 
   Color get warningColor => _isLight
