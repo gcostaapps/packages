@@ -73,7 +73,7 @@ class AppBottomBarItem extends StatelessWidget {
             Text(
               text,
               style: theme.textTheme.caption!.copyWith(
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
                 color: enabled
                     ? theme.colorScheme.onSurface
                     : AppBaseColors.placeholder,
