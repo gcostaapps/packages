@@ -50,7 +50,7 @@ class AppTheme {
     required MaterialColor primarySwatch,
     required MaterialColor secondarySwatch,
     required Brightness brightness,
-    String? fontFamily,
+    String fontFamily = 'Montserrat',
   }) {
     final _isLight = brightness == Brightness.light;
 
@@ -137,7 +137,7 @@ class AppTheme {
       brightness: brightness,
       textTheme: AppTypography().buildTextTheme(
         _doTrackColors.textColor100,
-        fontFamily: fontFamily ?? 'Montserrat',
+        fontFamily: fontFamily,
       ),
     );
   }
