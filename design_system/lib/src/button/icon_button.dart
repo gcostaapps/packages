@@ -5,16 +5,18 @@ import '../../design_system.dart';
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
     Key? key,
-    required this.iconData,
     this.onTap,
+    required this.iconData,
     this.buttonSize = ButtonSize.medium,
     this.withElevation = true,
+    this.color,
   }) : super(key: key);
 
   final VoidCallback? onTap;
   final IconData iconData;
   final ButtonSize buttonSize;
   final bool withElevation;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +64,7 @@ class CustomIconButton extends StatelessWidget {
             iconData,
             size: 24,
             color: onTap != null
-                ? theme.colorScheme.onSurface
+                ? color ?? theme.colorScheme.onSurface
                 : AppBaseColors.placeholder,
           ),
         ),
