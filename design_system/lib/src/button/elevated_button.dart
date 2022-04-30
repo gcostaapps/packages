@@ -48,7 +48,7 @@ class CustomElevatedButton extends StatelessWidget {
         color: onTap != null
             ? isPrimary
                 ? null
-                : context.theme.cardColor
+                : color ?? context.theme.cardColor
             : context.theme.disabledColor,
         decoration: onTap != null && isPrimary
             ? BoxDecoration(gradient: context.linearGradient)
@@ -59,10 +59,9 @@ class CustomElevatedButton extends StatelessWidget {
           iconPosition: iconPosition,
           wide: wide,
           enabled: onTap != null,
-          isPrimary: isPrimary,
+          isPrimary: isPrimary || color != null,
           iconData: iconData,
           buttonSize: buttonSize,
-          color: color,
         ),
       ),
     );

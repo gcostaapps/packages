@@ -20,7 +20,7 @@ class BaseButton extends StatelessWidget {
     this.iconData,
     this.isPrimary = true,
     required this.wide,
-    this.color,
+    this.textColor,
     this.buttonSize = ButtonSize.medium,
   }) : super(key: key);
 
@@ -30,7 +30,7 @@ class BaseButton extends StatelessWidget {
   final IconData? iconData;
   final bool isPrimary;
   final bool wide;
-  final Color? color;
+  final Color? textColor;
   final ButtonSize buttonSize;
 
   @override
@@ -53,7 +53,7 @@ class BaseButton extends StatelessWidget {
         break;
     }
 
-    final buttonColor = color ??
+    final buttonColor = textColor ??
         (enabled
             ? isPrimary
                 ? theme.colorScheme.onPrimary

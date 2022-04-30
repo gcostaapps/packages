@@ -10,7 +10,7 @@ class CustomTextButton extends StatelessWidget {
     this.iconData,
     this.padding,
     this.wide = false,
-    this.color,
+    this.textColor,
   }) : super(key: key);
 
   final String text;
@@ -19,7 +19,7 @@ class CustomTextButton extends StatelessWidget {
   final IconData? iconData;
   final EdgeInsets? padding;
   final bool wide;
-  final Color? color;
+  final Color? textColor;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -33,7 +33,7 @@ class CustomTextButton extends StatelessWidget {
           enabled: onTap != null,
           isPrimary: false,
           iconData: iconData,
-          color: color,
+          textColor: textColor,
         ),
       ),
     );

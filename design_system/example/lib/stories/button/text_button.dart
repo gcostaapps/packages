@@ -25,12 +25,21 @@ final textButtonStory = Story(
         Option(label: 'Backward', value: Icons.arrow_back),
       ],
     );
+    final color = context.knobs.options(
+      label: 'Color',
+      initial: null,
+      options: [
+        const Option(label: 'Empty', value: null),
+        Option(label: 'Error', value: context.colorScheme.error),
+      ],
+    );
 
     return CustomTextButton(
       text: text,
       onTap: enabled ? () => {} : null,
       iconData: icon,
       iconPosition: iconPosition,
+      color: color,
     );
   },
 );

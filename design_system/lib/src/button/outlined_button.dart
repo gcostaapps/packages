@@ -37,7 +37,9 @@ class CustomOutlinedButton extends StatelessWidget {
           child: Ink(
             decoration: BoxDecoration(
               color: onTap != null
-                  ? color ?? (isPrimary ? null : context.theme.cardColor)
+                  ? isPrimary
+                      ? null
+                      : color ?? context.theme.cardColor
                   : context.theme.disabledColor,
               gradient:
                   onTap != null && isPrimary ? context.linearGradient : null,
@@ -45,7 +47,7 @@ class CustomOutlinedButton extends StatelessWidget {
                   ? null
                   : Border.all(
                       color: onTap != null
-                          ? color ?? context.theme.colorScheme.onSurface
+                          ? color ?? context.theme.colorScheme.onBackground
                           : context.theme.disabledColor,
                       width: 2,
                     ),
@@ -57,10 +59,9 @@ class CustomOutlinedButton extends StatelessWidget {
               iconPosition: iconPosition,
               wide: wide,
               enabled: onTap != null,
-              isPrimary: isPrimary,
+              isPrimary: isPrimary || color != null,
               iconData: iconData,
               buttonSize: buttonSize,
-              color: color,
             ),
           ),
         ),

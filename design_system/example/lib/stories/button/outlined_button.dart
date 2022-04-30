@@ -34,6 +34,14 @@ final outlinedButtonStory = Story(
         Option(label: 'Backward', value: Icons.arrow_back),
       ],
     );
+    final color = context.knobs.options(
+      label: 'Color',
+      initial: null,
+      options: [
+        const Option(label: 'Empty', value: null),
+        Option(label: 'Error', value: context.colorScheme.error),
+      ],
+    );
 
     return CustomOutlinedButton(
       text: text,
@@ -43,6 +51,7 @@ final outlinedButtonStory = Story(
       buttonSize: size,
       iconPosition: iconPosition,
       isPrimary: primary,
+      color: color,
     );
   },
 );
