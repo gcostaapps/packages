@@ -85,6 +85,7 @@ class _ThemeModeSelectorConsts {
 /// * [darkBackground] and [darkToggle] are colors which control the
 ///   foreground and background colors representing the "dark" theme mode
 ///
+// ignore: must_be_immutable
 class ThemeModeSelector extends HookWidget {
   final int _durationInMs;
   final Color? _lightBackgroundColor;
@@ -115,16 +116,16 @@ class ThemeModeSelector extends HookWidget {
         _isChecked = isChecked,
         super(key: key);
 
-  late final AnimationController _animationController;
+  late AnimationController _animationController;
   final Set<MaterialState> _states = {};
 
-  late final Animation<Alignment> _alignmentAnimation;
-  late final Animation<double>? _starFade;
-  late final Animation<double>? _flareFade;
-  late final Animation<double> _starToggleFade;
-  late final Animation<double> _flareToggleFade;
-  late final Animation<Color?> _bgColorAnimation;
-  late final ValueNotifier<bool> isChecked;
+  late Animation<Alignment> _alignmentAnimation;
+  late Animation<double>? _starFade;
+  late Animation<double>? _flareFade;
+  late Animation<double> _starToggleFade;
+  late Animation<double> _flareToggleFade;
+  late Animation<Color?> _bgColorAnimation;
+  late ValueNotifier<bool> isChecked;
 
   _initialize(BuildContext context, ThemeModeSelectorThemeData myTheme) {
     Duration _duration = Duration(milliseconds: _durationInMs);
