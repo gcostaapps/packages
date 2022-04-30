@@ -25,11 +25,19 @@ final iconButtonStory = Story(
         Option(label: 'Configure', value: PegasusIcons.configure),
       ],
     );
+    final color = context.knobs.options<Color?>(
+      label: 'Icon',
+      initial: null,
+      options: [
+        Option(label: 'Error', value: context.colorScheme.error),
+      ],
+    );
 
     return CustomIconButton(
       onTap: enabled ? () => {} : null,
       iconData: icon,
       buttonSize: size,
+      color: color,
       withElevation: elevation,
     );
   },
