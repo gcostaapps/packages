@@ -46,7 +46,7 @@ class CustomIconButton extends StatelessWidget {
             iconData,
             size: 24,
             color: onTap != null
-                ? theme.colorScheme.onSurface
+                ? theme.colorScheme.onBackground
                 : AppBaseColors.placeholder,
           ),
         ),
