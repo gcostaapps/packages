@@ -94,15 +94,13 @@ class BaseButton extends StatelessWidget {
                   child: ConstrainedBox(
                     constraints:
                         BoxConstraints(maxWidth: iconData != null ? 264 : 360),
-                    child: Flexible(
-                      child: Text(
-                        text,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                        style: theme.textTheme.button!.copyWith(
-                          color: buttonColor,
-                        ),
+                    child: Text(
+                      text,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.button!.copyWith(
+                        color: buttonColor,
                       ),
                     ),
                   ),

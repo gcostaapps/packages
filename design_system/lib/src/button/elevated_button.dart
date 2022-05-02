@@ -45,12 +45,14 @@ class CustomElevatedButton extends StatelessWidget {
       shadowColor: shadowColor,
       onTap: onTap,
       child: Container(
-        color: onTap != null
-            ? color ?? (isPrimary ? null : context.theme.cardColor)
-            : context.theme.disabledColor,
-        decoration: onTap != null && isPrimary
-            ? BoxDecoration(gradient: context.linearGradient)
-            : null,
+        decoration: BoxDecoration(
+          color: onTap != null
+              ? color ?? (isPrimary ? null : context.theme.cardColor)
+              : context.theme.disabledColor,
+          gradient: onTap != null && color == null && isPrimary
+              ? context.linearGradient
+              : null,
+        ),
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: BaseButton(
           text: text,
