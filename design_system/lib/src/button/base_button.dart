@@ -68,6 +68,21 @@ class BaseButton extends StatelessWidget {
           )
         : null;
 
+    final textWidget = Padding(
+      padding: iconData == null
+          ? const EdgeInsets.only(top: 3)
+          : EdgeInsets.fromLTRB(iconPadding, 3, iconPadding, 0),
+      child: Text(
+        text,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 2,
+        textAlign: TextAlign.center,
+        style: theme.textTheme.button!.copyWith(
+          color: buttonColor,
+        ),
+      ),
+    );
+
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: SizedBox(
@@ -85,27 +100,8 @@ class BaseButton extends StatelessWidget {
                       iconPosition == IconPosition.left || wide ? iconSize : 0,
                   child: iconPosition == IconPosition.left ? icon : null,
                 ),
-              Expanded(
-                flex: wide ? 1 : 0,
-                child: Padding(
-                  padding: iconData == null
-                      ? const EdgeInsets.only(top: 3)
-                      : EdgeInsets.fromLTRB(iconPadding, 3, iconPadding, 0),
-                  child: ConstrainedBox(
-                    constraints:
-                        BoxConstraints(maxWidth: iconData != null ? 264 : 360),
-                    child: Text(
-                      text,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.button!.copyWith(
-                        color: buttonColor,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              if (wide) Expanded(child: textWidget),
+              if (!wide) Flexible(child: textWidget),
               if (iconData != null)
                 SizedBox(
                   width:

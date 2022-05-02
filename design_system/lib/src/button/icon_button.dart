@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../design_system.dart';
 
@@ -46,26 +47,29 @@ class CustomIconButton extends StatelessWidget {
             iconData,
             size: 24,
             color: onTap != null
-                ? theme.colorScheme.onBackground
+                ? color ?? theme.colorScheme.onBackground
                 : AppBaseColors.placeholder,
           ),
         ),
       );
     }
 
-    return FixedCard(
-      borderRadius: BorderRadius.circular(radius),
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          color: onTap != null ? theme.cardColor : theme.disabledColor,
-          padding: EdgeInsets.all(padding),
-          child: Icon(
-            iconData,
-            size: 24,
-            color: onTap != null
-                ? color ?? theme.colorScheme.onSurface
-                : AppBaseColors.placeholder,
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: FixedCard(
+        borderRadius: BorderRadius.circular(radius),
+        child: GestureDetector(
+          onTap: onTap,
+          child: Container(
+            color: onTap != null ? theme.cardColor : theme.disabledColor,
+            padding: EdgeInsets.all(padding),
+            child: Icon(
+              iconData,
+              size: 24,
+              color: onTap != null
+                  ? color ?? theme.colorScheme.onSurface
+                  : AppBaseColors.placeholder,
+            ),
           ),
         ),
       ),

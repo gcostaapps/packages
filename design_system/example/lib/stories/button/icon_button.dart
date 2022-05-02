@@ -26,9 +26,10 @@ final iconButtonStory = Story(
       ],
     );
     final color = context.knobs.options<Color?>(
-      label: 'Icon',
+      label: 'Color',
       initial: null,
       options: [
+        const Option(label: 'Null', value: null),
         Option(label: 'Error', value: context.colorScheme.error),
       ],
     );
