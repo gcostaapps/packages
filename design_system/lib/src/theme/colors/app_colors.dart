@@ -102,7 +102,7 @@ class AppColors {
       : AppBaseColors.successColor.shade200;
 
   Color get warningColor => _isLight
-      ? AppBaseColors.warningColor.shade400
+      ? AppBaseColors.warningColor.shade300
       : AppBaseColors.warningColor.shade200;
 
   // ignore: long-method
