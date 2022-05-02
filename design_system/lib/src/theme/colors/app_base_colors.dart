@@ -12,23 +12,23 @@ class AppBaseColors {
   static const Color background = Color(0xFFF7F7FC);
   static const Color offWhite = Color(0xFFFCFCFC);
 
-  static const MaterialColor errorColor = MaterialColor(0xFFFF0000, {
-    50: Color(0xFFFFF5F5),
-    100: Color(0xFFFFDBDB),
-    200: Color(0xFFFF6666),
-    300: Color(0xFFFF0000),
-    400: Color(0xFF990000),
+  static MaterialColor errorColor = const MaterialColor(0xFFED2E3E, {
+    50: Color(0xFFFFF3F8),
+    100: Color(0xFFFBE9E9),
+    200: Color(0xFFFE6161),
+    300: Color(0xFFED2E3E),
+    400: Color(0xFFB8004E),
   });
 
-  static const MaterialColor successColor = MaterialColor(0xFF00BA88, {
+  static MaterialColor successColor = const MaterialColor(0xFF00BA88, {
     50: Color(0xFFF2FFFB),
-    100: Color(0xFFADFFE9),
+    100: Color(0xFFE7FCF6),
     200: Color(0xFF34EAB9),
     300: Color(0xFF00BA88),
     400: Color(0xFF00805D),
   });
 
-  static const MaterialColor warningColor = MaterialColor(0xFFF4B740, {
+  static MaterialColor warningColor = const MaterialColor(0xFFF4B740, {
     50: Color(0xFFFFF9EF),
     100: Color(0xFFFFF6E4),
     200: Color(0xFFFFDB94),
