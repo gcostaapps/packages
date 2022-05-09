@@ -92,7 +92,7 @@ class AppDialogTransition {
             key: const ValueKey('WarningDialog'),
             width: MediaQuery.of(ctx).size.width - 32,
             decoration: BoxDecoration(
-              color: context.colorScheme.surface,
+              color: ctx.colorScheme.surface,
               borderRadius: const BorderRadius.all(Radius.circular(20)),
             ),
             child: Column(
@@ -106,7 +106,7 @@ class AppDialogTransition {
                     textAlign: TextAlign.center,
                     style: ctx.textTheme.subtitle2!.copyWith(
                       fontWeight: FontWeight.w500,
-                      color: context.colorScheme.error,
+                      color: ctx.colorScheme.error,
                     ),
                   ),
                 ),
@@ -126,7 +126,7 @@ class AppDialogTransition {
                       child: Material(
                         type: MaterialType.transparency,
                         child: InkWell(
-                          onTap: () => Navigator.pop(context),
+                          onTap: () => Navigator.pop(ctx),
                           borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                           ),
@@ -134,7 +134,7 @@ class AppDialogTransition {
                             padding: const EdgeInsets.symmetric(vertical: 16),
                             child: Icon(
                               Icons.close,
-                              color: context.colorScheme.onBackground,
+                              color: ctx.colorScheme.onBackground,
                             ),
                           ),
                         ),
@@ -155,7 +155,7 @@ class AppDialogTransition {
                               isDelete
                                   ? Icons.delete_outline_rounded
                                   : Icons.check,
-                              color: context.colorScheme.error,
+                              color: ctx.colorScheme.error,
                             ),
                           ),
                         ),
