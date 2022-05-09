@@ -80,7 +80,7 @@ class AppDialogTransition {
     BuildContext context, {
     required String title,
     required String message,
-    required VoidCallback onConfirm,
+    required Function(BuildContext) onConfirm,
     bool isDelete = true,
   }) =>
       showGeneralDialog(
@@ -145,7 +145,7 @@ class AppDialogTransition {
                         type: MaterialType.transparency,
                         child: InkWell(
                           key: const ValueKey('WarningDialogConfirmButton'),
-                          onTap: onConfirm,
+                          onTap: onConfirm(ctx),
                           borderRadius: const BorderRadius.only(
                             bottomRight: Radius.circular(20),
                           ),
