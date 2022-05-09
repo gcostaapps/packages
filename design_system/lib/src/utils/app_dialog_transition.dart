@@ -145,7 +145,7 @@ class AppDialogTransition {
                         type: MaterialType.transparency,
                         child: InkWell(
                           key: const ValueKey('WarningDialogConfirmButton'),
-                          onTap: onConfirm(ctx),
+                          onTap: () => onConfirm(ctx),
                           borderRadius: const BorderRadius.only(
                             bottomRight: Radius.circular(20),
                           ),
