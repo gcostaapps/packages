@@ -8,7 +8,7 @@ class CustomDialog extends StatelessWidget {
     required this.title,
     required this.message,
     required this.onConfirm,
-    required this.isWarning,
+    this.isWarning = false,
     this.confirmIcon = Icons.check,
   }) : super(key: key);
 
