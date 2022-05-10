@@ -12,11 +12,11 @@ class AppBaseColors {
   static const Color background = Color(0xFFF7F7FC);
   static const Color offWhite = Color(0xFFFCFCFC);
 
-  static MaterialColor errorColor = const MaterialColor(0xFFED2E3E, {
+  static MaterialColor errorColor = const MaterialColor(0xFFED2E7E, {
     50: Color(0xFFFFF3F8),
-    100: Color(0xFFFBE9E9),
-    200: Color(0xFFFE6161),
-    300: Color(0xFFED2E3E),
+    100: Color(0xFFFBE9F1),
+    200: Color(0xFFFE61A3),
+    300: Color(0xFFED2E7E),
     400: Color(0xFFB8004E),
   });
 
