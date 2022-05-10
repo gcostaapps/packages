@@ -44,23 +44,25 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     AppMessageHelper.init(context);
-    return Consumer<ThemeController>(
-      builder: (context, value, child) => Storybook(
-        wrapperBuilder: (context, child) =>
-            materialWrapper(context, child, value),
-        plugins: _plugins,
-        stories: [
-          ...styleguideStories,
-          ...cardStories,
-          ...buttonStories,
-          ...floatingItemsStories,
-          ...elevatedStories,
-          ...dialogStories,
-          premiumBannerStory,
-          bottomBarStory,
-          themeStory,
-          colorPickerStory,
-        ],
+    return GlobalLoaderOverlay(
+      child: Consumer<ThemeController>(
+        builder: (context, value, child) => Storybook(
+          wrapperBuilder: (context, child) =>
+              materialWrapper(context, child, value),
+          plugins: _plugins,
+          stories: [
+            ...styleguideStories,
+            ...cardStories,
+            ...buttonStories,
+            ...floatingItemsStories,
+            ...elevatedStories,
+            ...dialogStories,
+            premiumBannerStory,
+            bottomBarStory,
+            themeStory,
+            colorPickerStory,
+          ],
+        ),
       ),
     );
   }

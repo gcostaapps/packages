@@ -16,6 +16,8 @@ dependencies:
   badges: ^2.0.2
   #Perfomance Monitoring
   statsfl: ^2.3.0
+  #Loader Overlay
+  loader_overlay: ^2.0.6
 
 dev_dependencies:
   flutter_test:

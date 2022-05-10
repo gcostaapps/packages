@@ -58,7 +58,7 @@ class _LoadingState extends State<CustomLoading>
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () => Future.value(widget.cancelable),
+      onWillPop: onWillPop,
       child: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -91,6 +91,15 @@ class _LoadingState extends State<CustomLoading>
         ),
       ),
     );
+  }
+
+  Future<bool> onWillPop() async {
+    {
+      if (widget.cancelable) {
+        context.loaderOverlay.hide();
+      }
+      return Future.value(false);
+    }
   }
 }
 

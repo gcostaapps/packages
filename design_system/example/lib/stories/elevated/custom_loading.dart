@@ -16,15 +16,16 @@ final customLoadingStory = Story(
     return CustomOutlinedButton(
       text: 'Show Loading',
       onTap: () {
-        AppDialogTransition.showAppLoading(
-          context,
-          child: spinChild ? const CustomLoadingCube() : null,
+        context.loaderOverlay.show(
+            widget: CustomLoading(
           cancelable: false,
           text: text,
-        );
+          spinChild: spinChild ? const CustomLoadingCube() : null,
+        ));
+
         Future.delayed(
           const Duration(seconds: 5),
-          () => Navigator.pop(context),
+          () => context.loaderOverlay.hide(),
         );
       },
     );
@@ -61,7 +62,7 @@ class _CustomLoadingCubeState extends State<CustomLoadingCube>
   Widget build(BuildContext context) {
     return Center(
       child: LoadingAnimationWidget.inkDrop(
-        color: context.colorScheme.onSurface,
+        color: AppBaseColors.offWhite,
         size: 40,
       ),
     );
