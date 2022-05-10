@@ -4,6 +4,7 @@ export 'src/bottom_bar/bottom_bar_barrel.dart';
 export 'src/button/buttons.dart';
 export 'src/card/cards.dart';
 export 'src/color_picker/color_picker.dart';
+export 'src/dialogs/dialogs.dart';
 export 'src/theme/colors/app_base_colors.dart';
 export 'src/theme/colors/app_colors.dart';
 export 'src/elevated/dotrack_loading.dart';
