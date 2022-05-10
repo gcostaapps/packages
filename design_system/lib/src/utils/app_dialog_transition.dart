@@ -185,6 +185,113 @@ class AppDialogTransition {
         context: context,
       );
 
+  static Future<void> showPrimaryDialog(
+    BuildContext context, {
+    required String title,
+    required String message,
+    required Function(BuildContext) onConfirm,
+    required IconData icon,
+  }) =>
+      showGeneralDialog(
+        barrierDismissible: true,
+        barrierLabel: '',
+        barrierColor: AppBaseColors.darkSurfaceColors,
+        pageBuilder: (ctx, anim1, anim2) {
+          return Container(
+            key: const ValueKey('WarningDialog'),
+            width: MediaQuery.of(ctx).size.width - 32,
+            decoration: BoxDecoration(
+              color: ctx.colorScheme.surface,
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SpacerHeight24,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(
+                    title.toUpperCase(),
+                    textAlign: TextAlign.center,
+                    style: ctx.textTheme.subtitle2!.copyWith(
+                      fontWeight: FontWeight.w500,
+                      color: ctx.colorScheme.primary,
+                    ),
+                  ),
+                ),
+                SpacerHeight16,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(
+                    message,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SpacerHeight8,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Expanded(
+                      child: Material(
+                        type: MaterialType.transparency,
+                        child: InkWell(
+                          onTap: () => Navigator.pop(ctx),
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(20),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            child: Icon(
+                              Icons.close,
+                              color: ctx.colorScheme.onBackground,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Material(
+                        type: MaterialType.transparency,
+                        child: InkWell(
+                          key: const ValueKey('PrimaryDialogConfirmButton'),
+                          onTap: () => onConfirm(ctx),
+                          borderRadius: const BorderRadius.only(
+                            bottomRight: Radius.circular(20),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            child: Icon(
+                              icon,
+                              color: ctx.colorScheme.primary,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
+        transitionBuilder: (ctx, anim1, anim2, child) => BackdropFilter(
+          filter: ImageFilter.blur(
+            sigmaX: 8,
+            sigmaY: 8,
+          ),
+          child: FadeTransition(
+            opacity: anim1,
+            child: Center(
+              child: Material(
+                color: Colors.transparent,
+                child: child,
+              ),
+            ),
+          ),
+        ),
+        context: context,
+      );
+
   static Future<void> showAppLoading(BuildContext context) => showBlurred(
         context,
         CustomLoading(color: Theme.of(context).colorScheme.onSurface),
