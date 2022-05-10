@@ -159,7 +159,7 @@ class AppDialogTransition {
       showGeneralDialog(
         barrierDismissible: barrierDismissible,
         barrierLabel: '',
-        barrierColor: AppBaseColors.darkSurfaceColors.withOpacity(0.5),
+        barrierColor: AppBaseColors.darkSurfaceColors,
         pageBuilder: (ctx, anim1, anim2) => child,
         transitionBuilder: (ctx, anim1, anim2, child) => BackdropFilter(
           filter: ImageFilter.blur(

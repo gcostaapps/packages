@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../design_system.dart';
@@ -59,35 +60,38 @@ class _LoadingState extends State<CustomLoading>
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: onWillPop,
-      child: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            widget.spinChild ??
-                RotationTransition(
-                  turns: _rotationAnimation,
-                  child: SizedBox.fromSize(
-                    size: Size.square(size * math.sqrt1_2),
-                    child: CustomPaint(
-                      painter: _HourGlassPaint(
-                        poured: _pouringAnimation.value,
-                        color: AppBaseColors.offWhite,
-                        strokeWidth: strokeWidth,
+      child: Container(
+        color: AppBaseColors.darkSurfaceColors,
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              widget.spinChild ??
+                  RotationTransition(
+                    turns: _rotationAnimation,
+                    child: SizedBox.fromSize(
+                      size: Size.square(size * math.sqrt1_2),
+                      child: CustomPaint(
+                        painter: _HourGlassPaint(
+                          poured: _pouringAnimation.value,
+                          color: AppBaseColors.offWhite,
+                          strokeWidth: strokeWidth,
+                        ),
                       ),
                     ),
                   ),
-                ),
-            if (widget.text != null) ...[
-              SpacerHeight16,
-              Text(
-                widget.text!,
-                style: context.textTheme.bodyText1!.copyWith(
-                  color: AppBaseColors.offWhite,
-                ),
-              )
-            ]
-          ],
+              if (widget.text != null) ...[
+                SpacerHeight16,
+                Text(
+                  widget.text!,
+                  style: context.textTheme.bodyText1!.copyWith(
+                    color: AppBaseColors.offWhite,
+                  ),
+                )
+              ]
+            ],
+          ),
         ),
       ),
     );
