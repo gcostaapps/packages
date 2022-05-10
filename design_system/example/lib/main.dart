@@ -1,5 +1,6 @@
 import 'package:design_system/design_system.dart';
 import 'package:example/stories/card/card.dart';
+import 'package:example/stories/dialogs/dialogs.dart';
 import 'package:example/theme/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -54,6 +55,7 @@ class _MyAppState extends State<MyApp> {
           ...buttonStories,
           ...floatingItemsStories,
           ...elevatedStories,
+          ...dialogStories,
           premiumBannerStory,
           bottomBarStory,
           themeStory,
