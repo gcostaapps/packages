@@ -2,21 +2,19 @@ import 'dart:math' as math;
 
 import 'package:flutter/widgets.dart';
 
+import '../../design_system.dart';
+
 class CustomLoading extends StatefulWidget {
   const CustomLoading({
     Key? key,
-    required this.color,
-    this.size = 48,
-    this.duration = const Duration(milliseconds: 2000),
-    this.strokeWidth = 1.5,
-    this.controller,
+    this.spinChild,
+    this.text,
+    this.cancelable = false,
   }) : super(key: key);
 
-  final double size;
-  final Color color;
-  final Duration duration;
-  final double strokeWidth;
-  final AnimationController? controller;
+  final Widget? spinChild;
+  final String? text;
+  final bool cancelable;
 
   @override
   _LoadingState createState() => _LoadingState();
@@ -28,25 +26,30 @@ class _LoadingState extends State<CustomLoading>
   late Animation<double> _pouringAnimation;
   late Animation<double> _rotationAnimation;
 
+  final double size = 48;
+  final double strokeWidth = 1.5;
+  final Duration duration = const Duration(milliseconds: 2000);
+
   @override
   void initState() {
     super.initState();
 
-    _controller = (widget.controller ??
-        AnimationController(vsync: this, duration: widget.duration))
-      ..addListener(() => setState(() => {}))
-      ..repeat();
-    _pouringAnimation =
-        CurvedAnimation(parent: _controller, curve: const Interval(0.0, 0.9))
-          ..addListener(() => setState(() => {}));
-    _rotationAnimation = Tween(begin: 0.0, end: 0.5).animate(CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.9, 1.0, curve: Curves.easeInOut)));
+    if (widget.spinChild == null) {
+      _controller = (AnimationController(vsync: this, duration: duration))
+        ..addListener(() => setState(() => {}))
+        ..repeat();
+      _pouringAnimation =
+          CurvedAnimation(parent: _controller, curve: const Interval(0.0, 0.9))
+            ..addListener(() => setState(() => {}));
+      _rotationAnimation = Tween(begin: 0.0, end: 0.5).animate(CurvedAnimation(
+          parent: _controller,
+          curve: const Interval(0.9, 1.0, curve: Curves.easeInOut)));
+    }
   }
 
   @override
   void dispose() {
-    if (widget.controller == null) {
+    if (widget.spinChild == null) {
       _controller.dispose();
     }
     super.dispose();
@@ -54,18 +57,37 @@ class _LoadingState extends State<CustomLoading>
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: RotationTransition(
-        turns: _rotationAnimation,
-        child: SizedBox.fromSize(
-          size: Size.square(widget.size * math.sqrt1_2),
-          child: CustomPaint(
-            painter: _HourGlassPaint(
-              poured: _pouringAnimation.value,
-              color: widget.color,
-              strokeWidth: widget.strokeWidth,
-            ),
-          ),
+    return WillPopScope(
+      onWillPop: () => Future.value(widget.cancelable),
+      child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            widget.spinChild ??
+                RotationTransition(
+                  turns: _rotationAnimation,
+                  child: SizedBox.fromSize(
+                    size: Size.square(size * math.sqrt1_2),
+                    child: CustomPaint(
+                      painter: _HourGlassPaint(
+                        poured: _pouringAnimation.value,
+                        color: AppBaseColors.offWhite,
+                        strokeWidth: strokeWidth,
+                      ),
+                    ),
+                  ),
+                ),
+            if (widget.text != null) ...[
+              SpacerHeight16,
+              Text(
+                widget.text!,
+                style: context.textTheme.bodyText1!.copyWith(
+                  color: AppBaseColors.offWhite,
+                ),
+              )
+            ]
+          ],
         ),
       ),
     );

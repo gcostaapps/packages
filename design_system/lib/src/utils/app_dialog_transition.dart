@@ -151,10 +151,20 @@ class AppDialogTransition {
         context: context,
       );
 
-  static Future<void> showAppLoading(BuildContext context) => showBlurred(
+  static Future<void> showAppLoading(
+    BuildContext context, {
+    Widget? child,
+    String? text,
+    bool cancelable = false,
+  }) =>
+      showBlurred(
         context,
-        CustomLoading(color: Theme.of(context).colorScheme.onSurface),
-        barrierDismissible: false,
+        CustomLoading(
+          cancelable: cancelable,
+          text: text,
+          spinChild: child,
+        ),
+        barrierDismissible: cancelable,
       );
 
   static Future<void> showBlurred(
