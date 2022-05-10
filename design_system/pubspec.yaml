@@ -10,14 +10,10 @@ dependencies:
   flutter:
     sdk: flutter
   animations: ^2.0.2
-  #Used for display helper messages
-  flash: ^1.5.2+2 #Maintain this version
-  #Badges for bottom bar
-  badges: ^2.0.2
-  #Perfomance Monitoring
-  statsfl: ^2.3.0
-  #Loader Overlay
-  loader_overlay: ^2.0.6
+  flash: ^1.5.2+2 #Keep this version. Used for display helper (success/error) messages 
+  badges: ^2.0.2 #Badges for bottom bar
+  statsfl: ^2.3.0 #Perfomance Monitoring
+  loader_overlay: ^2.0.6 #Loader Overlay
 
 dev_dependencies:
   flutter_test:

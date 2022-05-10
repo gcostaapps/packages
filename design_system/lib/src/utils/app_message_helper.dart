@@ -40,6 +40,62 @@ class AppMessageHelper {
     _buildCompleter = Completer<BuildContext>();
   }
 
+  static Future<T?> successBar<T>(
+    BuildContext context, {
+    String? title,
+    required String message,
+    Duration duration = const Duration(seconds: 3),
+  }) =>
+      messageBar(
+        context,
+        title: title,
+        message: message,
+        duration: duration,
+        messageEnum: MessageEnum.success,
+      );
+
+  static Future<T?> infoBar<T>(
+    BuildContext context, {
+    String? title,
+    required String message,
+    Duration duration = const Duration(seconds: 3),
+  }) =>
+      messageBar(
+        context,
+        title: title,
+        message: message,
+        duration: duration,
+        messageEnum: MessageEnum.info,
+      );
+
+  static Future<T?> warningBar<T>(
+    BuildContext context, {
+    String? title,
+    required String message,
+    Duration duration = const Duration(seconds: 3),
+  }) =>
+      messageBar(
+        context,
+        title: title,
+        message: message,
+        duration: duration,
+        messageEnum: MessageEnum.warning,
+      );
+
+  static Future<T?> errorBar<T>(
+    BuildContext context, {
+    String? title,
+    required String message,
+    Duration duration = const Duration(seconds: 3),
+  }) =>
+      messageBar(
+        context,
+        title: title,
+        message: message,
+        duration: duration,
+        messageEnum: MessageEnum.error,
+      );
+
   // ignore: long-method, long-parameter-list
   static Future<T?> messageBar<T>(
     BuildContext context, {
@@ -141,6 +197,18 @@ class AppMessageHelper {
           ),
         );
       },
+    );
+  }
+
+  static Future<T?> widgetBar<T>(
+    BuildContext context, {
+    required Widget child,
+    Duration duration = const Duration(seconds: 3),
+  }) {
+    return showFlash<T>(
+      context: context,
+      duration: duration,
+      builder: (context, controller) => child,
     );
   }
 }
