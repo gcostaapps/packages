@@ -21,6 +21,8 @@ dependencies:
   shared_preferences: ^2.0.10
   #Device Info
   universal_platform: ^1.0.0+1
+  #Purchases
+  purchases_flutter: ^3.9.5
 
 dev_dependencies:
   flutter_test:

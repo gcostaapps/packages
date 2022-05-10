@@ -14,3 +14,6 @@ export 'src/local_storage/shared_preferences_local_storage.dart';
 
 export 'src/logger/i_logger.dart';
 export 'src/logger/logger.dart';
+
+export 'src/payments/payments_service.dart';
+export 'package:purchases_flutter/purchases_flutter.dart';
