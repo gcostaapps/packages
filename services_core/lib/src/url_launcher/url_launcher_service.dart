@@ -24,7 +24,7 @@ class UrlLauncherService implements IUrlLauncherService {
     try {
       final Uri emailLaunchUri = Uri(
         scheme: 'mailto',
-        path: 'hello@appmytime.com',
+        path: path,
         query: subject != null
             ? _encodeQueryParameters(<String, String>{'subject': subject})
             : null,
