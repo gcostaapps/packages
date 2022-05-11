@@ -20,15 +20,15 @@ class CustomDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: SizedBox(
-        key: const ValueKey('CustomDialog'),
-        width: MediaQuery.of(context).size.width - 32,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: context.colorScheme.surface,
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-          ),
+    return SizedBox(
+      key: const ValueKey('CustomDialog'),
+      width: MediaQuery.of(context).size.width - 32,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: context.colorScheme.surface,
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+        ),
+        child: Material(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
