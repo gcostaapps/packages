@@ -17,3 +17,5 @@ export 'src/logger/logger.dart';
 
 export 'src/payments/payments_service.dart';
 export 'package:purchases_flutter/purchases_flutter.dart';
+
+export 'src/url_launcher/url_launcher_service.dart';
