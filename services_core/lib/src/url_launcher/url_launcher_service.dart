@@ -1,4 +1,4 @@
-import 'package:services_core/services_core.dart';
+import '../../services_core.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 abstract class IUrlLauncherService {
@@ -20,12 +20,14 @@ class UrlLauncherService implements IUrlLauncherService {
   final ILogger logger;
 
   @override
-  Future<bool> launchEmail(String subject) async {
+  Future<bool> launchEmail(String path, {String? subject}) async {
     try {
       final Uri emailLaunchUri = Uri(
         scheme: 'mailto',
         path: 'hello@appmytime.com',
-        query: _encodeQueryParameters(<String, String>{'subject': subject}),
+        query: subject != null
+            ? _encodeQueryParameters(<String, String>{'subject': subject})
+            : null,
       );
 
       return launchUrl(emailLaunchUri);
