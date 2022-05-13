@@ -39,49 +39,53 @@ class WidgetDialogWeb extends StatelessWidget {
         },
         child: _WidgetDialogWebHolder(
           width: width,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 40,
-                        child: leading ??
-                            IconButton(
-                                splashRadius: 24,
-                                icon: Icon(
-                                  Icons.close,
-                                  color: context.colorScheme.onBackground,
-                                ),
-                                onPressed: () => Navigator.pop(context)),
-                      ),
-                      Expanded(
-                        child: Center(
-                          child: Text(
-                            title,
-                            style: context.textTheme.headline6!.copyWith(
-                              fontWeight: FontWeight.w600,
-                            ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 40,
+                      child: leading ??
+                          IconButton(
+                              splashRadius: 24,
+                              icon: Icon(
+                                Icons.close,
+                                color: context.colorScheme.onBackground,
+                              ),
+                              onPressed: () => Navigator.pop(context)),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          title,
+                          style: context.textTheme.headline6!.copyWith(
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
-                      trailing ?? SpacerWidth40,
-                    ],
-                  ),
+                    ),
+                    trailing ?? SpacerWidth40,
+                  ],
                 ),
-                const SizedBox(height: 40),
-                body,
-                SizedBox(
-                  height: actions != null ? 40 : 0,
+              ),
+              const SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: body,
+              ),
+              SizedBox(
+                height: actions != null ? 40 : 0,
+              ),
+              if (actions != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: actions!,
                 ),
-                if (actions != null) actions!,
-              ],
-            ),
+            ],
           ),
         ),
       ),
