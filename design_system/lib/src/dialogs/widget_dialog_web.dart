@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../design_system.dart';
-import 'dialog_icon_web.dart';
 
 class CloseDialogIntent extends Intent {
   const CloseDialogIntent();
