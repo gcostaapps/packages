@@ -82,6 +82,7 @@ class AppDialogTransition {
     required String message,
     required Function(BuildContext) onConfirm,
     bool isDelete = true,
+    double width = 800,
   }) =>
       showGeneralDialog(
         barrierDismissible: true,
@@ -93,6 +94,7 @@ class AppDialogTransition {
             title: title,
             message: message,
             onConfirm: onConfirm,
+            width: width,
           );
         },
         transitionBuilder: (ctx, anim1, anim2, child) => BackdropFilter(
@@ -119,6 +121,7 @@ class AppDialogTransition {
     required String message,
     required Function(BuildContext) onConfirm,
     IconData? icon,
+    double width = 800,
   }) =>
       showGeneralDialog(
         barrierDismissible: true,
@@ -131,6 +134,7 @@ class AppDialogTransition {
             message: message,
             onConfirm: onConfirm,
             confirmIcon: icon ?? Icons.check,
+            width: width,
           );
         },
         transitionBuilder: (ctx, anim1, anim2, child) => BackdropFilter(

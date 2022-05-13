@@ -10,6 +10,7 @@ class CustomDialog extends StatelessWidget {
     required this.onConfirm,
     this.isWarning = false,
     this.confirmIcon = Icons.check,
+    this.width = 800,
   }) : super(key: key);
 
   final String title;
@@ -17,6 +18,7 @@ class CustomDialog extends StatelessWidget {
   final Function(BuildContext) onConfirm;
   final bool isWarning;
   final IconData confirmIcon;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,9 @@ class CustomDialog extends StatelessWidget {
       child: Material(
         child: SizedBox(
           key: const ValueKey('CustomDialog'),
-          width: MediaQuery.of(context).size.width - 32,
+          width: MediaQuery.of(context).size.width - 32 >= width
+              ? width
+              : MediaQuery.of(context).size.width - 32,
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: context.colorScheme.surface,
