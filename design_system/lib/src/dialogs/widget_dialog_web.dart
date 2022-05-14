@@ -37,103 +37,89 @@ class WidgetDialogWeb extends StatelessWidget {
             onInvoke: (CloseDialogIntent intent) => Navigator.pop(context),
           ),
         },
-        child: _WidgetDialogWebHolder(
-          width: width,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      child: leading ??
-                          IconButton(
-                              splashRadius: 24,
-                              icon: Icon(
-                                Icons.close,
-                                color: context.colorScheme.onBackground,
+        child: AnimatedPadding(
+          padding: MediaQuery.of(context).viewInsets +
+              const EdgeInsets.symmetric(vertical: 24),
+          duration: const Duration(milliseconds: 100),
+          curve: Curves.decelerate,
+          child: MediaQuery.removeViewInsets(
+            removeLeft: true,
+            removeTop: true,
+            removeRight: true,
+            removeBottom: true,
+            context: context,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minWidth: 280.0),
+                child: Material(
+                  color: context.colorScheme.surface,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(24, 40, 24, 40),
+                    width: width,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 40,
+                                child: leading ??
+                                    IconButton(
+                                        splashRadius: 24,
+                                        icon: Icon(
+                                          Icons.close,
+                                          color:
+                                              context.colorScheme.onBackground,
+                                        ),
+                                        onPressed: () =>
+                                            Navigator.pop(context)),
                               ),
-                              onPressed: () => Navigator.pop(context)),
-                    ),
-                    Expanded(
-                      child: Center(
-                        child: Text(
-                          title,
-                          style: context.textTheme.headline6!.copyWith(
-                            fontWeight: FontWeight.w600,
+                              Expanded(
+                                child: Center(
+                                  child: Text(
+                                    title,
+                                    style:
+                                        context.textTheme.headline6!.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              trailing ?? SpacerWidth40,
+                            ],
                           ),
                         ),
-                      ),
+                        const SizedBox(height: 40),
+                        Flexible(
+                          child: SingleChildScrollView(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: body,
+                          ),
+                        ),
+                        if (actions != null) ...[
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Column(
+                              children: [
+                                const Divider(),
+                                const SizedBox(height: 16),
+                                actions!,
+                              ],
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
-                    trailing ?? SpacerWidth40,
-                  ],
+                  ),
                 ),
               ),
-              const SizedBox(height: 40),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: body,
-              ),
-              SizedBox(
-                height: actions != null ? 40 : 0,
-              ),
-              if (actions != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: actions!,
-                ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _WidgetDialogWebHolder extends StatelessWidget {
-  final Widget child;
-  final double width;
-
-  const _WidgetDialogWebHolder({
-    Key? key,
-    required this.child,
-    required this.width,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    final dialog = ConstrainedBox(
-      constraints: const BoxConstraints(minWidth: 280.0),
-      child: Material(
-        color: context.colorScheme.surface,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(16)),
-        ),
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(24, 40, 24, 40),
-          width: width,
-          child: child,
-        ),
-      ),
-    );
-    return AnimatedPadding(
-      padding: MediaQuery.of(context).viewInsets +
-          const EdgeInsets.symmetric(vertical: 24),
-      duration: const Duration(milliseconds: 100),
-      curve: Curves.decelerate,
-      child: MediaQuery.removeViewInsets(
-        removeLeft: true,
-        removeTop: true,
-        removeRight: true,
-        removeBottom: true,
-        context: context,
-        child: Align(
-          alignment: Alignment.topCenter,
-          child: Scrollbar(
-            child: SingleChildScrollView(
-              child: dialog,
             ),
           ),
         ),
