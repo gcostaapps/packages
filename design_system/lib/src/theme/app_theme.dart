@@ -52,21 +52,21 @@ class AppTheme {
     required Brightness brightness,
     String fontFamily = 'Montserrat',
   }) {
-    final _isLight = brightness == Brightness.light;
+    final isLight = brightness == Brightness.light;
 
-    final _doTrackColors = AppColors(brightness);
+    final doTrackColors = AppColors(brightness);
 
-    final _primaryColor =
-        _isLight ? primarySwatch.shade500 : primarySwatch.shade200;
-    final _primaryColorLight =
-        _isLight ? primarySwatch.shade200 : primarySwatch.shade100;
-    final _primaryColorDark =
-        _isLight ? primarySwatch.shade800 : primarySwatch.shade500;
+    final primaryColor =
+        isLight ? primarySwatch.shade500 : primarySwatch.shade200;
+    final primaryColorLight =
+        isLight ? primarySwatch.shade200 : primarySwatch.shade100;
+    final primaryColorDark =
+        isLight ? primarySwatch.shade800 : primarySwatch.shade500;
 
-    final _secondaryColor =
-        _isLight ? secondarySwatch.shade500 : secondarySwatch.shade200;
-    final _secondaryColorDark =
-        _isLight ? secondarySwatch.shade800 : secondarySwatch.shade500;
+    final secondaryColor =
+        isLight ? secondarySwatch.shade500 : secondarySwatch.shade200;
+    final secondaryColorDark =
+        isLight ? secondarySwatch.shade800 : secondarySwatch.shade500;
 
     const cardTheme = CardTheme(
       elevation: 0,
@@ -81,20 +81,20 @@ class AppTheme {
 
     final textButtonTheme = TextButtonThemeData(
       style: TextButton.styleFrom(
-        primary: _primaryColor,
+        primary: primaryColor,
       ),
     );
 
     final iconTheme = IconThemeData(
-      color: _doTrackColors.textColor100,
+      color: doTrackColors.textColor100,
       size: 24,
     );
 
     final appBarTheme = AppBarTheme(
       elevation: 4,
       iconTheme: iconTheme,
-      backgroundColor: _doTrackColors.surfaceColor50,
-      foregroundColor: _doTrackColors.textColor100,
+      backgroundColor: doTrackColors.surfaceColor50,
+      foregroundColor: doTrackColors.textColor100,
     );
 
     return ThemeData(
@@ -106,37 +106,37 @@ class AppTheme {
       sliderTheme: sliderTheme,
 
       appBarTheme: appBarTheme,
-      toggleableActiveColor: _primaryColor,
-      errorColor: _doTrackColors.errorColor,
-      canvasColor: _doTrackColors.surfaceColor50,
-      backgroundColor: _doTrackColors.surfaceColor100,
-      cardColor: _doTrackColors.surfaceColor50,
-      primaryColor: _primaryColor,
+      toggleableActiveColor: primaryColor,
+      errorColor: doTrackColors.errorColor,
+      canvasColor: doTrackColors.surfaceColor50,
+      backgroundColor: doTrackColors.surfaceColor100,
+      cardColor: doTrackColors.surfaceColor50,
+      primaryColor: primaryColor,
       shadowColor: const Color(0x32000000),
-      unselectedWidgetColor: _doTrackColors.textColor200,
-      dividerColor: _doTrackColors.textColor500,
-      disabledColor: _isLight ? AppBaseColors.line : AppBaseColors.label,
-      primaryColorLight: _primaryColorLight,
-      primaryColorDark: _primaryColorDark,
-      dialogBackgroundColor: _doTrackColors.surfaceColor50,
+      unselectedWidgetColor: doTrackColors.textColor200,
+      dividerColor: doTrackColors.textColor500,
+      disabledColor: isLight ? AppBaseColors.line : AppBaseColors.label,
+      primaryColorLight: primaryColorLight,
+      primaryColorDark: primaryColorDark,
+      dialogBackgroundColor: doTrackColors.surfaceColor50,
       colorScheme: ColorScheme(
-        primary: _primaryColor,
-        primaryContainer: _primaryColorDark,
-        secondary: _secondaryColor,
-        secondaryContainer: _secondaryColorDark,
-        surface: _doTrackColors.surfaceColor50,
-        background: _doTrackColors.surfaceColor100,
-        error: _doTrackColors.errorColor,
-        onPrimary: _doTrackColors.textColor800,
-        onSecondary: _doTrackColors.textColor800,
-        onSurface: _doTrackColors.textColor100,
-        onBackground: _doTrackColors.textColor300,
+        primary: primaryColor,
+        primaryContainer: primaryColorDark,
+        secondary: secondaryColor,
+        secondaryContainer: secondaryColorDark,
+        surface: doTrackColors.surfaceColor50,
+        background: doTrackColors.surfaceColor100,
+        error: doTrackColors.errorColor,
+        onPrimary: doTrackColors.textColor800,
+        onSecondary: doTrackColors.textColor800,
+        onSurface: doTrackColors.textColor100,
+        onBackground: doTrackColors.textColor300,
         onError: AppBaseColors.offBlack,
         brightness: brightness,
       ),
       brightness: brightness,
       textTheme: AppTypography().buildTextTheme(
-        _doTrackColors.textColor100,
+        doTrackColors.textColor100,
         fontFamily: fontFamily,
       ),
     );

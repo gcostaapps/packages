@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:design_system/design_system.dart';
 import 'package:example/stories/card/card.dart';
 import 'package:example/stories/dialogs/dialogs.dart';
