@@ -108,16 +108,16 @@ class AppBaseColors {
   );
 
   static const Map<int, Color> tigerSwatch = {
-    50: Color(0xFFFFF9F5),
-    100: Color(0xFFFFECDB),
-    200: Color(0xFFFFC899),
-    300: Color(0xFFFFAC66),
-    400: Color(0xFFFFAC66),
-    500: Color(0xFFFF7500),
-    600: Color(0xFFE56900),
-    700: Color(0xFFCC5E00),
-    800: Color(0xFF994600),
-    900: Color(0xFF662F00),
+    50: Color(0xFFFDF9F2),
+    100: Color(0xFFFFECC7),
+    200: Color(0xFFF7CA78),
+    300: Color(0xFFFDC04D),
+    400: Color(0xFFF7BB4B),
+    500: Color(0xFFF7A223),
+    600: Color(0xFFE09304),
+    700: Color(0xFFBD7B00),
+    800: Color(0xFF946000),
+    900: Color(0xFF573800),
   };
 
   static const MaterialColor dark = MaterialColor(
