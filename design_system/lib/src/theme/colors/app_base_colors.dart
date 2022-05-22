@@ -103,7 +103,7 @@ class AppBaseColors {
   };
 
   static const MaterialColor tiger = MaterialColor(
-    0xFFFF7500,
+    0xFFF7A223,
     tigerSwatch,
   );
 
