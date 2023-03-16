@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
         useInheritedMediaQuery: true,
         home: Builder(builder: (context) {
           return Scaffold(
-            backgroundColor: Theme.of(context).backgroundColor,
+            backgroundColor: Theme.of(context).colorScheme.background,
             body: Center(child: child),
           );
         }),

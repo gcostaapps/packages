@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart' as badges;
 
 import '../../design_system.dart';
 
@@ -56,11 +57,14 @@ class AppBottomBarItem extends StatelessWidget {
                     : AppBaseColors.placeholder,
               ),
             if (hasNotification)
-              Badge(
-                animationType: BadgeAnimationType.scale,
-                animationDuration: const Duration(milliseconds: 1),
-                position: BadgePosition.topEnd(end: -8, top: -4),
-                badgeColor: context.colorScheme.primary,
+              badges.Badge(
+                badgeAnimation: const badges.BadgeAnimation.scale(
+                  toAnimate: false,
+                ),
+                position: badges.BadgePosition.topEnd(end: -8, top: -4),
+                badgeStyle: badges.BadgeStyle(
+                  badgeColor: context.colorScheme.primary,
+                ),
                 child: Icon(
                   icon,
                   size: 20,
@@ -72,7 +76,7 @@ class AppBottomBarItem extends StatelessWidget {
             SpacerHeight4,
             Text(
               text,
-              style: theme.textTheme.caption!.copyWith(
+              style: theme.textTheme.bodySmall!.copyWith(
                 fontWeight: FontWeight.w500,
                 color: enabled
                     ? theme.colorScheme.onSurface

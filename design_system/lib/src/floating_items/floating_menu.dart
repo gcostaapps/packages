@@ -44,7 +44,7 @@ class FloatingMenu extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: theme.textTheme.bodyText1!.copyWith(
+                    style: theme.textTheme.bodyLarge!.copyWith(
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -54,7 +54,7 @@ class FloatingMenu extends StatelessWidget {
                       subtitle!.toUpperCase(),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.overline!.copyWith(
+                      style: theme.textTheme.labelSmall!.copyWith(
                         color: theme.colorScheme.onBackground,
                       ),
                     )

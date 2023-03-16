@@ -177,13 +177,14 @@ class AppMessageHelper {
                               if (title != null) ...[
                                 Text(
                                   title,
-                                  style: Theme.of(context).textTheme.subtitle1,
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
                                 ),
                                 SpacerHeight4,
                               ],
                               Text(
                                 message,
-                                style: Theme.of(context).textTheme.bodyText1,
+                                style: Theme.of(context).textTheme.bodyLarge,
                               ),
                             ],
                           ),

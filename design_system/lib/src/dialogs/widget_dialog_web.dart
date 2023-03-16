@@ -86,7 +86,7 @@ class WidgetDialogWeb extends StatelessWidget {
                                   child: Text(
                                     title,
                                     style:
-                                        context.textTheme.headline6!.copyWith(
+                                        context.textTheme.titleLarge!.copyWith(
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),

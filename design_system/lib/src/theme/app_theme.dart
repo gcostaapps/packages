@@ -80,9 +80,7 @@ class AppTheme {
     );
 
     final textButtonTheme = TextButtonThemeData(
-      style: TextButton.styleFrom(
-        primary: primaryColor,
-      ),
+      style: TextButton.styleFrom(foregroundColor: primaryColor),
     );
 
     final iconTheme = IconThemeData(
@@ -104,12 +102,8 @@ class AppTheme {
       textButtonTheme: textButtonTheme,
       iconTheme: iconTheme,
       sliderTheme: sliderTheme,
-
       appBarTheme: appBarTheme,
-      toggleableActiveColor: primaryColor,
-      errorColor: doTrackColors.errorColor,
       canvasColor: doTrackColors.surfaceColor50,
-      backgroundColor: doTrackColors.surfaceColor100,
       cardColor: doTrackColors.surfaceColor50,
       primaryColor: primaryColor,
       shadowColor: const Color(0x32000000),

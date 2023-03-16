@@ -55,7 +55,7 @@ class FloatingTabItem extends StatelessWidget {
                 ),
               Text(
                 text,
-                style: theme.textTheme.subtitle2!.copyWith(
+                style: theme.textTheme.titleSmall!.copyWith(
                   fontSize: 12,
                   color: theme.colorScheme.onPrimary,
                   fontWeight: FontWeight.w600,
@@ -95,7 +95,7 @@ class FloatingTabItem extends StatelessWidget {
                   ),
                 Text(
                   text,
-                  style: theme.textTheme.subtitle2!.copyWith(
+                  style: theme.textTheme.titleSmall!.copyWith(
                     fontSize: 12,
                     color: theme.colorScheme.onSurface,
                     fontWeight: FontWeight.w600,
@@ -134,7 +134,7 @@ class FloatingTabItem extends StatelessWidget {
               ),
             Text(
               text,
-              style: theme.textTheme.subtitle2!.copyWith(
+              style: theme.textTheme.titleSmall!.copyWith(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
               ),

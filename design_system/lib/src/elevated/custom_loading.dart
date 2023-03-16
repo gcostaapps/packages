@@ -87,7 +87,7 @@ class _LoadingState extends State<CustomLoading>
                 SpacerHeight16,
                 Text(
                   widget.text!,
-                  style: context.textTheme.bodyText1!.copyWith(
+                  style: context.textTheme.bodyLarge!.copyWith(
                     color: AppBaseColors.offWhite,
                   ),
                 )

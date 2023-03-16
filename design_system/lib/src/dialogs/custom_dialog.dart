@@ -44,7 +44,7 @@ class CustomDialog extends StatelessWidget {
                   child: Text(
                     title.toUpperCase(),
                     textAlign: TextAlign.center,
-                    style: context.textTheme.subtitle2!.copyWith(
+                    style: context.textTheme.titleSmall!.copyWith(
                       fontWeight: FontWeight.w500,
                       color: isWarning
                           ? context.colorScheme.error

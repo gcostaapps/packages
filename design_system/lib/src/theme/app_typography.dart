@@ -8,7 +8,7 @@ class AppTypography {
   // ignore: long-method
   TextTheme buildTextTheme(Color textColor, {required String fontFamily}) {
     return TextTheme(
-      headline1: TextStyle(
+      displayLarge: TextStyle(
         fontFamily: fontFamily,
         fontSize: 96,
         height: 1.17,
@@ -16,7 +16,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: -1.5,
       ),
-      headline2: TextStyle(
+      displayMedium: TextStyle(
         fontFamily: fontFamily,
         fontSize: 60,
         height: 1.2,
@@ -24,7 +24,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: -0.5,
       ),
-      headline3: TextStyle(
+      displaySmall: TextStyle(
         fontFamily: fontFamily,
         fontSize: 48,
         height: 1,
@@ -32,7 +32,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: 0,
       ),
-      headline4: TextStyle(
+      headlineMedium: TextStyle(
         fontFamily: fontFamily,
         fontSize: 32,
         height: 1.19,
@@ -40,7 +40,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: 0.25,
       ),
-      headline5: TextStyle(
+      headlineSmall: TextStyle(
         fontFamily: fontFamily,
         fontSize: 24,
         height: 1.17,
@@ -48,7 +48,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: 0,
       ),
-      headline6: TextStyle(
+      titleLarge: TextStyle(
         fontFamily: fontFamily,
         fontSize: 20,
         height: 1.2,
@@ -56,7 +56,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: 0.15,
       ),
-      subtitle1: TextStyle(
+      titleMedium: TextStyle(
         fontFamily: fontFamily,
         fontSize: 16,
         height: 1.5,
@@ -64,7 +64,7 @@ class AppTypography {
         fontWeight: FontWeight.w500,
         color: textColor,
       ),
-      subtitle2: TextStyle(
+      titleSmall: TextStyle(
         fontFamily: fontFamily,
         fontSize: 14,
         height: 1.14,
@@ -72,7 +72,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: 0.1,
       ),
-      bodyText1: TextStyle(
+      bodyLarge: TextStyle(
         fontFamily: fontFamily,
         fontSize: 16,
         height: 1.5,
@@ -80,7 +80,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: 0.5,
       ),
-      bodyText2: TextStyle(
+      bodyMedium: TextStyle(
         fontFamily: fontFamily,
         fontSize: 14,
         height: 1.5,
@@ -88,7 +88,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: 0.25,
       ),
-      button: TextStyle(
+      labelLarge: TextStyle(
         fontFamily: fontFamily,
         fontSize: 16,
         height: 1,
@@ -96,7 +96,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: 1.25,
       ),
-      caption: TextStyle(
+      bodySmall: TextStyle(
         fontFamily: fontFamily,
         fontSize: 12,
         height: 1.33,
@@ -104,7 +104,7 @@ class AppTypography {
         color: textColor,
         letterSpacing: 0.4,
       ),
-      overline: TextStyle(
+      labelSmall: TextStyle(
         fontFamily: fontFamily,
         fontSize: 10,
         height: 1,

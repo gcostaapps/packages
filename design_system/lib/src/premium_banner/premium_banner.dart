@@ -59,7 +59,7 @@ class PremmiumBanner extends StatelessWidget {
                           title,
                           style: Theme.of(context)
                               .textTheme
-                              .subtitle2!
+                              .titleSmall!
                               .copyWith(
                                 color: Theme.of(context).colorScheme.onSurface,
                               ),
@@ -68,7 +68,7 @@ class PremmiumBanner extends StatelessWidget {
                         Text(
                           message,
                           style:
-                              Theme.of(context).textTheme.bodyText2!.copyWith(
+                              Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     fontSize: 12,
                                     height: 1.25,
                                   ),

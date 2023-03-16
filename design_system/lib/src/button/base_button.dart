@@ -77,7 +77,7 @@ class BaseButton extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
         maxLines: 2,
         textAlign: TextAlign.center,
-        style: theme.textTheme.button!.copyWith(
+        style: theme.textTheme.labelLarge!.copyWith(
           color: buttonColor,
         ),
       ),

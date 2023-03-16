@@ -21,9 +21,9 @@ class PaymentsService implements IPaymentsService {
 
   @override
   Future<void> setup(String apiKey) async {
-    await Purchases.setDebugLogsEnabled(kDebugMode);
+    await Purchases.setLogLevel(kDebugMode ? LogLevel.debug : LogLevel.error);
     if (Platform.isAndroid) {
-      await Purchases.setup(apiKey);
+      await Purchases.configure(PurchasesConfiguration(apiKey));
     }
   }
 
@@ -59,9 +59,9 @@ class PaymentsService implements IPaymentsService {
   @override
   Future<bool> isUserPremium() async {
     try {
-      final purchaserInfo = await Purchases.getPurchaserInfo();
-      if (purchaserInfo.entitlements.all["Premium"] != null) {
-        return purchaserInfo.entitlements.all["Premium"]!.isActive;
+      final customerInfo = await Purchases.getCustomerInfo();
+      if (customerInfo.entitlements.all["Premium"] != null) {
+        return customerInfo.entitlements.all["Premium"]!.isActive;
       }
       return false;
     } catch (e, s) {
@@ -73,7 +73,7 @@ class PaymentsService implements IPaymentsService {
   @override
   Future<bool> restorePurchase() async {
     try {
-      final restoredInfo = await Purchases.restoreTransactions();
+      final restoredInfo = await Purchases.restorePurchases();
       if (restoredInfo.entitlements.all["Premium"] != null) {
         return restoredInfo.entitlements.all["Premium"]!.isActive;
       }
@@ -87,7 +87,7 @@ class PaymentsService implements IPaymentsService {
   @override
   Future<bool> hasFreeTrial() async {
     try {
-      final restoredInfo = await Purchases.getPurchaserInfo();
+      final restoredInfo = await Purchases.getCustomerInfo();
       if (restoredInfo.entitlements.all["Premium"] != null) {
         return !restoredInfo.entitlements.all["Premium"]!.isActive &&
             restoredInfo.allPurchasedProductIdentifiers.isEmpty;
