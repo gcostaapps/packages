@@ -22,6 +22,7 @@ class ClickableCard extends StatefulWidget {
 class _ClickableCardState extends State<ClickableCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  late Animation<double> animation;
 
   @override
   void initState() {
@@ -29,6 +30,12 @@ class _ClickableCardState extends State<ClickableCard>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 50),
+    );
+
+    animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeOut,
+      reverseCurve: Curves.easeIn,
     );
   }
 
@@ -74,13 +81,13 @@ class _ClickableCardState extends State<ClickableCard>
           animation: _controller,
           builder: (context, child) {
             return Transform.scale(
-              scale: 1 - 0.03 * _controller.value,
+              scale: 1 - 0.03 * animation.value,
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: widget.borderRadius ??
                       const BorderRadius.all(Radius.circular(4)),
                 ),
-                elevation: 16 - 8 * _controller.value,
+                elevation: 16 - 8 * animation.value,
                 shadowColor: shadowColorWithOpacity,
                 child: child,
               ),
