@@ -3,22 +3,21 @@ description: A new Flutter package project.
 version: 0.0.3
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   animations: ^2.0.7
   statsfl: ^2.3.0 #Perfomance Monitoring
-  loader_overlay: ^2.1.0 #Loader Overlay
-  flash: ^1.5.2+2 #Keep this version. Used for display helper (success/error) messages 
-  badges: ^3.0.2 #Badges for bottom bar
+  loader_overlay: ^2.2.0 #Loader Overlay
+  flash: ^3.0.3+5  #Used for display helper (success/error) messages 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.1
-  dart_code_metrics: ^4.15.2
+  dart_code_metrics: ^5.7.3
 
 
 # For information on the generic Dart part of this file, see the

@@ -75,7 +75,6 @@ class _MyAppState extends State<MyApp> {
         theme: theme.lightTheme,
         darkTheme: theme.darkTheme,
         debugShowCheckedModeBanner: false,
-        useInheritedMediaQuery: true,
         home: Builder(builder: (context) {
           return Scaffold(
             backgroundColor: Theme.of(context).colorScheme.background,
