@@ -37,7 +37,7 @@ class PaymentsService implements IPaymentsService {
           .expand((i) => i)
           .toList();
     } catch (e, s) {
-      _logger?.error('getPackages', e, s);
+      _logger?.error('getPackages', error: e, stackTrace: s);
       return [];
     }
   }
@@ -51,7 +51,7 @@ class PaymentsService implements IPaymentsService {
       }
       return false;
     } catch (e, s) {
-      _logger?.error('purchaseSubscription', e, s);
+      _logger?.error('purchaseSubscription', error: e, stackTrace: s);
       return false;
     }
   }
@@ -65,7 +65,7 @@ class PaymentsService implements IPaymentsService {
       }
       return false;
     } catch (e, s) {
-      _logger?.error('isUserPremium', e, s);
+      _logger?.error('isUserPremium', error: e, stackTrace: s);
       return false;
     }
   }
@@ -79,7 +79,7 @@ class PaymentsService implements IPaymentsService {
       }
       return false;
     } catch (e, s) {
-      _logger?.error('restorePurchase', e, s);
+      _logger?.error('restorePurchase', error: e, stackTrace: s);
       return false;
     }
   }
@@ -94,7 +94,7 @@ class PaymentsService implements IPaymentsService {
       }
       return true;
     } catch (e, s) {
-      _logger?.error('hasFreeTrial', e, s);
+      _logger?.error('hasFreeTrial', error: e, stackTrace: s);
       return true;
     }
   }

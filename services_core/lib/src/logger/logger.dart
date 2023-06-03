@@ -30,11 +30,11 @@ class Logger implements ILogger {
       releaseExceptionCatcher;
 
   @override
-  void debug(dynamic message, [dynamic error, StackTrace? stackTrace]) =>
+  void debug(dynamic message, {dynamic error, StackTrace? stackTrace}) =>
       kDebugMode ? _logger.d(message, error, stackTrace) : null;
 
   @override
-  void error(dynamic message, [dynamic error, StackTrace? stackTrace]) {
+  void error(dynamic message, {dynamic error, StackTrace? stackTrace}) {
     if (kDebugMode) {
       _logger.e(message, error, stackTrace);
     } else if (kReleaseMode && releaseExceptionCatcher != null) {
@@ -47,11 +47,11 @@ class Logger implements ILogger {
   }
 
   @override
-  void info(dynamic message, [dynamic error, StackTrace? stackTrace]) =>
+  void info(dynamic message, {dynamic error, StackTrace? stackTrace}) =>
       kDebugMode ? _logger.i(message, error, stackTrace) : null;
 
   @override
-  void warning(dynamic message, [dynamic error, StackTrace? stackTrace]) =>
+  void warning(dynamic message, {dynamic error, StackTrace? stackTrace}) =>
       kDebugMode ? _logger.w(message, error, stackTrace) : null;
 
   @override

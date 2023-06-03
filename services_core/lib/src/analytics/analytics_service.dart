@@ -22,7 +22,7 @@ class AnalyticsService implements IAnalyticsService {
         _mixpanel = MixpanelAnalytics(
           token: mixpanelToken!,
           verbose: kDebugMode,
-          onError: (e) => _logger.error('mixpanelAnalytics', e),
+          onError: (e) => _logger.error('mixpanelAnalytics', error: e),
         );
       }
     }

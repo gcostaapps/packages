@@ -102,7 +102,7 @@ class AppMessageHelper {
     required MessageEnum messageEnum,
     String? title,
     required String message,
-    Duration duration = const Duration(seconds: 30),
+    Duration duration = const Duration(seconds: 3),
   }) {
     return showFlash<T>(
       context: context,
@@ -137,102 +137,79 @@ class AppMessageHelper {
             ),
         };
 
-        // context.showFlash<bool>(
-        //   barrierDismissible: true,
-        //   duration: const Duration(seconds: 3),
-        //   builder: (context, controller) => FlashBar(
-        //     controller: controller,
-        //     forwardAnimationCurve: Curves.easeInCirc,
-        //     reverseAnimationCurve: Curves.bounceIn,
-        //     position: FlashPosition.top,
-        //     indicatorColor: Colors.red,
-        //     icon: Icon(Icons.tips_and_updates_outlined),
-        //     title: Text('Flash Title'),
-        //     content: Text('This is basic flash.'),
-        //     actions: [
-        //       TextButton(onPressed: controller.dismiss, child: Text('Cancel')),
-        //       TextButton(
-        //           onPressed: () => controller.dismiss(true), child: Text('Ok'))
-        //     ],
-        //   ),
-        // );
-
         return FadeTransition(
           opacity: controller.controller,
-          child: Flash(
+          child: FlashBar(
+            behavior: FlashBehavior.floating,
             controller: controller,
             position: FlashPosition.top,
+            margin: EdgeInsets.zero,
+            padding: EdgeInsets.zero,
+            backgroundColor: Colors.transparent,
             dismissDirections: const [
               FlashDismissDirection.endToStart,
               FlashDismissDirection.startToEnd
             ],
-            child: Material(
-              color: Colors.transparent,
-              child: SafeArea(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Card(
-                        elevation: 12,
-                        child: Container(
-                          width: double.infinity,
-                          color: Theme.of(context).colorScheme.surface,
-                          child: ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(4)),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 16,
-                                horizontal: 8,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Card(
+                    elevation: 12,
+                    child: Container(
+                      width: double.infinity,
+                      color: Theme.of(context).colorScheme.surface,
+                      child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(4)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 8,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(4),
+                                child: Icon(
+                                  icon,
+                                  size: 24,
+                                  color: color,
+                                ),
                               ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(4),
-                                    child: Icon(
-                                      icon,
-                                      size: 24,
-                                      color: color,
+                              SpacerWidth12,
+                              Expanded(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    if (title != null) ...[
+                                      Text(
+                                        title,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium,
+                                      ),
+                                      SpacerHeight4,
+                                    ],
+                                    Text(
+                                      message,
+                                      style:
+                                          Theme.of(context).textTheme.bodyLarge,
                                     ),
-                                  ),
-                                  SpacerWidth12,
-                                  Expanded(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        if (title != null) ...[
-                                          Text(
-                                            title,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleMedium,
-                                          ),
-                                          SpacerHeight4,
-                                        ],
-                                        Text(
-                                          message,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyLarge,
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
                         ),
                       ),
                     ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         );
