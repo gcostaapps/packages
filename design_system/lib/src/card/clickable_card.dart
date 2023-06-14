@@ -23,6 +23,10 @@ class _ClickableCardState extends State<ClickableCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> animation;
+  bool isWithFocus = false;
+  bool isInHover = false;
+
+  bool get isFocused => isWithFocus || isInHover;
 
   @override
   void initState() {
@@ -57,9 +61,7 @@ class _ClickableCardState extends State<ClickableCard>
 
     if (widget.onTap == null) {
       return Card(
-        color: widget.onTap != null
-            ? widget.shadowColor ?? theme.cardColor
-            : theme.disabledColor,
+        color: theme.disabledColor,
         shape: RoundedRectangleBorder(
           borderRadius:
               widget.borderRadius ?? const BorderRadius.all(Radius.circular(4)),
@@ -70,26 +72,55 @@ class _ClickableCardState extends State<ClickableCard>
       );
     }
 
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTapDown: (_) => _controller.forward(),
-        onTapUp: (_) => _controller.reverse(),
-        onTapCancel: () => _controller.reverse(),
-        onTap: widget.onTap,
+    return GestureDetector(
+      onTapDown: (_) => _controller.forward(),
+      onTapUp: (_) => _controller.reverse(),
+      onTapCancel: () => _controller.reverse(),
+      child: InkWell(
+        mouseCursor: SystemMouseCursors.click,
+        onTap: onTap,
+        onHover: (v) => setState(() => isInHover = v),
+        onFocusChange: (v) => setState(() => isWithFocus = v),
+        borderRadius:
+            widget.borderRadius ?? const BorderRadius.all(Radius.circular(4)),
         child: AnimatedBuilder(
           animation: _controller,
           builder: (context, child) {
             return Transform.scale(
               scale: 1 - 0.03 * animation.value,
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: widget.borderRadius ??
-                      const BorderRadius.all(Radius.circular(4)),
-                ),
-                elevation: 16 - 8 * animation.value,
-                shadowColor: shadowColorWithOpacity,
-                child: child,
+              child: Stack(
+                children: [
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: widget.borderRadius ??
+                          const BorderRadius.all(Radius.circular(4)),
+                    ),
+                    elevation: 16 - 8 * animation.value,
+                    shadowColor: shadowColorWithOpacity,
+                    child: child,
+                  ),
+                  if (isFocused)
+                    IgnorePointer(
+                      ignoring: true,
+                      ignoringSemantics: true,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.onSurface.withOpacity(
+                              widget.shadowColor == null ? 0.02 : 0.06),
+                          border: Border.all(
+                              width: 1,
+                              color:
+                                  theme.colorScheme.onSurface.withOpacity(0.5)),
+                          borderRadius: widget.borderRadius ??
+                              const BorderRadius.all(Radius.circular(4)),
+                        ),
+                        child: Opacity(
+                          opacity: 0,
+                          child: child,
+                        ),
+                      ),
+                    ),
+                ],
               ),
             );
           },
@@ -97,5 +128,10 @@ class _ClickableCardState extends State<ClickableCard>
         ),
       ),
     );
+  }
+
+  void onTap() {
+    _controller.forward().then((value) => _controller.reverse());
+    widget.onTap!();
   }
 }
