@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:services_core/services_core.dart';
 
 class ClickableCard extends StatefulWidget {
   const ClickableCard({
@@ -72,6 +74,8 @@ class _ClickableCardState extends State<ClickableCard>
       );
     }
 
+    //Check if is Web Or Desktop
+
     return GestureDetector(
       onTapDown: (_) => _controller.forward(),
       onTapUp: (_) => _controller.reverse(),
@@ -104,7 +108,7 @@ class _ClickableCardState extends State<ClickableCard>
                     shadowColor: shadowColorWithOpacity,
                     child: child,
                   ),
-                  if (isFocused)
+                  if (isFocused && DeviceOS.isDesktopOrWeb)
                     IgnorePointer(
                       ignoring: true,
                       ignoringSemantics: true,
