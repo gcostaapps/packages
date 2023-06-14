@@ -81,6 +81,11 @@ class _ClickableCardState extends State<ClickableCard>
         onTap: onTap,
         onHover: (v) => setState(() => isInHover = v),
         onFocusChange: (v) => setState(() => isWithFocus = v),
+        splashColor: Colors.transparent,
+        focusColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        overlayColor: MaterialStateProperty.all(Colors.transparent),
         borderRadius:
             widget.borderRadius ?? const BorderRadius.all(Radius.circular(4)),
         child: AnimatedBuilder(
@@ -105,8 +110,7 @@ class _ClickableCardState extends State<ClickableCard>
                       ignoringSemantics: true,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                          color: theme.colorScheme.onSurface.withOpacity(
-                              widget.shadowColor == null ? 0.02 : 0.06),
+                          color: theme.colorScheme.onSurface.withOpacity(0.02),
                           border: Border.all(
                               width: 1,
                               color:
