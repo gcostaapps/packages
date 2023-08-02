@@ -44,7 +44,7 @@ class AppMessageHelper {
     BuildContext context, {
     String? title,
     required String message,
-    Duration duration = const Duration(seconds: 3),
+    Duration duration = const Duration(seconds: 1),
   }) =>
       messageBar(
         context,
@@ -220,7 +220,7 @@ class AppMessageHelper {
   static Future<T?> widgetBar<T>(
     BuildContext context, {
     required Widget child,
-    Duration duration = const Duration(seconds: 3),
+    Duration duration = const Duration(seconds: 2),
   }) {
     return showFlash<T>(
       context: context,
