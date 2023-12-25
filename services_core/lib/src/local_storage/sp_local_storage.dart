@@ -2,8 +2,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'i_local_storage.dart';
 
-class SharedPreferencesLocalStorage implements ILocalStorage {
-  SharedPreferencesLocalStorage() {
+class SPLocalStorage implements ILocalStorage {
+  SPLocalStorage() {
     _instance = SharedPreferences.getInstance();
   }
 

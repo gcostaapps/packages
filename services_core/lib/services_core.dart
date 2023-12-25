@@ -10,7 +10,7 @@ export 'src/device_info/device_info.dart';
 export 'src/environments/environments.dart';
 
 export 'src/local_storage/i_local_storage.dart';
-export 'src/local_storage/shared_preferences_local_storage.dart';
+export 'src/local_storage/sp_local_storage.dart';
 
 export 'src/logger/i_logger.dart';
 export 'src/logger/logger.dart';
