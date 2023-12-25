@@ -6,11 +6,11 @@ import 'floating_selection_wrapper.dart';
 
 class FloatingSelection extends StatelessWidget {
   const FloatingSelection({
-    Key? key,
+    super.key,
     required this.onTap,
     required this.isSelected,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final VoidCallback onTap;

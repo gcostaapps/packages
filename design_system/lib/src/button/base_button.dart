@@ -13,7 +13,7 @@ enum ButtonSize {
 
 class BaseButton extends StatelessWidget {
   const BaseButton({
-    Key? key,
+    super.key,
     required this.text,
     this.iconPosition = IconPosition.right,
     required this.enabled,
@@ -22,7 +22,7 @@ class BaseButton extends StatelessWidget {
     required this.wide,
     this.textColor,
     this.buttonSize = ButtonSize.medium,
-  }) : super(key: key);
+  });
 
   final String text;
   final IconPosition iconPosition;

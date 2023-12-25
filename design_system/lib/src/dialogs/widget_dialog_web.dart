@@ -16,14 +16,14 @@ class WidgetDialogWeb extends StatelessWidget {
   final double width;
 
   const WidgetDialogWeb({
-    Key? key,
+    super.key,
     this.leading,
     this.trailing,
     required this.title,
     required this.body,
     this.actions,
     this.width = 800,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

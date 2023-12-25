@@ -10,14 +10,14 @@ enum IllustrationPosition {
 
 class PremmiumBanner extends StatelessWidget {
   const PremmiumBanner({
-    Key? key,
+    super.key,
     required this.title,
     required this.message,
     required this.illustration,
     required this.onTap,
     this.illustrationPosition = IllustrationPosition.right,
     this.radius = 12,
-  }) : super(key: key);
+  });
 
   final String title;
   final String message;

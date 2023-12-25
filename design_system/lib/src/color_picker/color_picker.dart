@@ -102,7 +102,7 @@ class ColorPicker extends StatefulWidget {
   final bool forceIconColorToThemeBrightness;
 
   const ColorPicker({
-    Key? key,
+    super.key,
     this.selectedColor,
     this.onColorChange,
     this.onMainColorChange,
@@ -117,7 +117,7 @@ class ColorPicker extends StatefulWidget {
     this.onBack,
     this.elevation,
     this.forceIconColorToThemeBrightness = false,
-  }) : super(key: key);
+  });
 
   @override
   _ColorPickerState createState() => _ColorPickerState();
@@ -250,15 +250,15 @@ class _ColorPickerState extends State<ColorPicker> {
               onPressed: _onBack,
               padding: const EdgeInsets.only(right: 2.0),
             ),
-            ..._getMaterialColorShades(_mainColor)
-                .map((color) => CircleColor(
-                      color: color,
-                      onColorChoose: () => _onShadeColorSelected(color),
-                      isSelected: _shadeColor == color,
-                      iconSelected: widget.iconSelected,
-                      elevation: widget.elevation,
-                    ))
-                .toList()
+            ..._getMaterialColorShades(_mainColor).map(
+              (color) => CircleColor(
+                color: color,
+                onColorChoose: () => _onShadeColorSelected(color),
+                isSelected: _shadeColor == color,
+                iconSelected: widget.iconSelected,
+                elevation: widget.elevation,
+              ),
+            )
           ];
 
     return LayoutBuilder(

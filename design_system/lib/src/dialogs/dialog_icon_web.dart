@@ -6,8 +6,7 @@ class DialogIconWeb extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
 
-  const DialogIconWeb({Key? key, required this.icon, required this.onTap})
-      : super(key: key);
+  const DialogIconWeb({super.key, required this.icon, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

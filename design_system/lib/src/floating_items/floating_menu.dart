@@ -4,7 +4,7 @@ import '../../design_system.dart';
 
 class FloatingMenu extends StatelessWidget {
   const FloatingMenu({
-    Key? key,
+    super.key,
     required this.title,
     required this.onTap,
     this.subtitle,
@@ -14,7 +14,7 @@ class FloatingMenu extends StatelessWidget {
     this.iconFaded = true,
     this.floating = true,
     this.iconSize = 32,
-  }) : super(key: key);
+  });
 
   final String title;
   final VoidCallback onTap;

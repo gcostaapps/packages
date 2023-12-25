@@ -4,14 +4,14 @@ import '../../design_system.dart';
 
 class CustomDialog extends StatelessWidget {
   const CustomDialog({
-    Key? key,
+    super.key,
     required this.title,
     required this.message,
     required this.onConfirm,
     this.isWarning = false,
     this.confirmIcon = Icons.check,
     this.maxWidth = 800,
-  }) : super(key: key);
+  });
 
   final String title;
   final String message;

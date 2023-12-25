@@ -4,9 +4,9 @@ import '../../design_system.dart';
 
 class WidgetDialog extends StatelessWidget {
   const WidgetDialog({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 

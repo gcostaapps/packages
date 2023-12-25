@@ -17,11 +17,11 @@ final customLoadingStory = Story(
       text: 'Show Loading',
       onTap: () {
         context.loaderOverlay.show(
-            widget: CustomLoading(
-          cancelable: false,
-          text: text,
-          spinChild: spinChild ? const CustomLoadingCube() : null,
-        ));
+            widgetBuilder: (_) => CustomLoading(
+                  cancelable: false,
+                  text: text,
+                  spinChild: spinChild ? const CustomLoadingCube() : null,
+                ));
 
         Future.delayed(
           const Duration(seconds: 5),

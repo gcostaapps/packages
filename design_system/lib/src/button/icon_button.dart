@@ -4,13 +4,13 @@ import '../../design_system.dart';
 
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
-    Key? key,
+    super.key,
     this.onTap,
     required this.iconData,
     this.buttonSize = ButtonSize.medium,
     this.withElevation = true,
     this.color,
-  }) : super(key: key);
+  });
 
   final VoidCallback? onTap;
   final IconData iconData;

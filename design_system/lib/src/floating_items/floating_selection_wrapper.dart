@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class FloatingSelectionWrapper extends StatelessWidget {
   const FloatingSelectionWrapper({
-    Key? key,
+    super.key,
     required this.isSelected,
     required this.child,
-  }) : super(key: key);
+  });
 
   final bool isSelected;
   final Widget child;

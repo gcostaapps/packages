@@ -1,15 +1,14 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:services_core/services_core.dart';
 
 class ClickableCard extends StatefulWidget {
   const ClickableCard({
-    Key? key,
+    super.key,
     this.borderRadius,
     this.onTap,
     this.shadowColor,
     required this.child,
-  }) : super(key: key);
+  });
 
   final BorderRadius? borderRadius;
   final VoidCallback? onTap;
@@ -111,7 +110,6 @@ class _ClickableCardState extends State<ClickableCard>
                   if (isFocused && DeviceOS.isDesktopOrWeb)
                     IgnorePointer(
                       ignoring: true,
-                      ignoringSemantics: true,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
                           color: theme.colorScheme.onSurface.withOpacity(0.02),

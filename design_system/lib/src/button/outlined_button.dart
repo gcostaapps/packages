@@ -5,7 +5,7 @@ import 'base_button.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
   const CustomOutlinedButton({
-    Key? key,
+    super.key,
     required this.text,
     this.iconPosition = IconPosition.right,
     this.onTap,
@@ -15,7 +15,7 @@ class CustomOutlinedButton extends StatelessWidget {
     this.isPrimary = true,
     this.radius = 6,
     this.color,
-  }) : super(key: key);
+  });
 
   final String text;
   final IconPosition iconPosition;

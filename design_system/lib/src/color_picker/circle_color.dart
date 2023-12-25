@@ -11,15 +11,14 @@ class CircleColor extends StatelessWidget {
   final bool forceIconColorToThemeBrightness;
 
   const CircleColor({
-    Key? key,
+    super.key,
     required this.color,
     this.onColorChoose,
     this.isSelected = false,
     this.forceIconColorToThemeBrightness = false,
     this.elevation = _kColorElevation,
     this.iconSelected,
-  })  : assert(!isSelected || (isSelected && iconSelected != null)),
-        super(key: key);
+  })  : assert(!isSelected || (isSelected && iconSelected != null));
 
   @override
   Widget build(BuildContext context) {

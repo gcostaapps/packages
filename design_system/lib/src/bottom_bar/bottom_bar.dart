@@ -4,10 +4,10 @@ import 'bottom_bar_item.dart';
 
 class AppBottomBar extends StatefulWidget {
   const AppBottomBar({
-    Key? key,
+    super.key,
     required this.initialPage,
     required this.items,
-  }) : super(key: key);
+  });
 
   final int initialPage;
   final List<AppBottomBarItemModel> items;

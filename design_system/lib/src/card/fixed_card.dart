@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class FixedCard extends StatelessWidget {
   const FixedCard({
-    Key? key,
+    super.key,
     this.borderRadius,
     this.shadowColor,
     required this.child,
     this.elevation = 4,
-  }) : super(key: key);
+  });
 
   final BorderRadius? borderRadius;
   final Color? shadowColor;

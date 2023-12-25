@@ -6,13 +6,13 @@ import '../theme/app_theme.dart';
 
 class FloatingTabItem extends StatelessWidget {
   const FloatingTabItem({
-    Key? key,
+    super.key,
     required this.isSelected,
     required this.onTap,
     required this.text,
     this.floating = true,
     this.icon,
-  }) : super(key: key);
+  });
 
   final bool isSelected;
   final VoidCallback onTap;

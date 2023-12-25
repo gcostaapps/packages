@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
-    Key? key,
+    super.key,
     required this.text,
     this.iconPosition = IconPosition.right,
     this.onTap,
@@ -11,7 +11,7 @@ class CustomTextButton extends StatelessWidget {
     this.padding,
     this.wide = false,
     this.textColor,
-  }) : super(key: key);
+  });
 
   final String text;
   final IconPosition iconPosition;

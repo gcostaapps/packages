@@ -4,7 +4,7 @@ import '../../design_system.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
-    Key? key,
+    super.key,
     required this.text,
     this.iconPosition = IconPosition.right,
     this.onTap,
@@ -14,7 +14,7 @@ class CustomElevatedButton extends StatelessWidget {
     this.isPrimary = true,
     this.borderRadius = 12,
     this.color,
-  }) : super(key: key);
+  });
 
   final String text;
   final IconPosition iconPosition;

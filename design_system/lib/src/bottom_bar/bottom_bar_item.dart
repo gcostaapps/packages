@@ -21,13 +21,13 @@ class AppBottomBarItemModel {
 
 class AppBottomBarItem extends StatelessWidget {
   const AppBottomBarItem({
-    Key? key,
+    super.key,
     required this.enabled,
     required this.onTap,
     required this.icon,
     required this.text,
     required this.hasNotification,
-  }) : super(key: key);
+  });
 
   final bool enabled;
   final VoidCallback onTap;

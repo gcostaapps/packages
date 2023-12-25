@@ -9,11 +9,11 @@ import '../../design_system.dart';
 
 class CustomLoading extends StatefulWidget {
   const CustomLoading({
-    Key? key,
+    super.key,
     this.spinChild,
     this.text,
     this.cancelable = false,
-  }) : super(key: key);
+  });
 
   final Widget? spinChild;
   final String? text;
@@ -60,8 +60,9 @@ class _LoadingState extends State<CustomLoading>
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: onWillPop,
+    return PopScope(
+      canPop: widget.cancelable,
+      onPopInvoked: onPopInvoked,
       child: Container(
         color: AppBaseColors.darkSurfaceColors,
         child: Center(
@@ -99,12 +100,11 @@ class _LoadingState extends State<CustomLoading>
     );
   }
 
-  Future<bool> onWillPop() async {
+  Future<void> onPopInvoked(bool didPop) async {
     {
-      if (widget.cancelable) {
+      if (didPop) {
         context.loaderOverlay.hide();
       }
-      return Future.value(false);
     }
   }
 }
