@@ -70,8 +70,8 @@ class BaseButton extends StatelessWidget {
 
     final textWidget = Padding(
       padding: iconData == null
-          ? const EdgeInsets.only(top: 3)
-          : EdgeInsets.fromLTRB(iconPadding, 3, iconPadding, 0),
+          ? const EdgeInsets.all(0)
+          : EdgeInsets.symmetric(horizontal: iconPadding),
       child: Text(
         text,
         overflow: TextOverflow.ellipsis,
