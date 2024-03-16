@@ -8,7 +8,7 @@ class AppBottomBarItemModel {
   final VoidCallback onTap;
   final bool hasNotification;
 
-  final ValueKey? key;
+  final Key? key;
 
   AppBottomBarItemModel({
     required this.text,
