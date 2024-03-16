@@ -47,9 +47,7 @@ class AppBottomBarState extends State<AppBottomBar> {
                 widget.items.length,
                 (i) => Expanded(
                   child: AppBottomBarItem(
-                    key: widget.items[i].key != null
-                        ? ValueKey(widget.items[i].key!)
-                        : null,
+                    key: widget.items[i].key,
                     enabled: i == _currentIndex,
                     icon: widget.items[i].icon,
                     text: widget.items[i].text,

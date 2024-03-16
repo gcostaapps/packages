@@ -83,6 +83,7 @@ class AppDialogTransition {
     required Function(BuildContext) onConfirm,
     bool isDelete = true,
     double maxWidth = 800,
+    Key? key,
   }) =>
       showGeneralDialog(
         barrierDismissible: true,
@@ -90,6 +91,7 @@ class AppDialogTransition {
         barrierColor: AppBaseColors.darkSurfaceColors,
         pageBuilder: (ctx, anim1, anim2) {
           return CustomDialog(
+            key: key,
             isWarning: isDelete,
             title: title,
             message: message,
