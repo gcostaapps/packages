@@ -81,6 +81,7 @@ class AppDialogTransition {
     required String title,
     required String message,
     required Function(BuildContext) onConfirm,
+    required Function(BuildContext) onReject,
     bool isDelete = true,
     double maxWidth = 800,
     bool barrierDismissible = true,
@@ -98,6 +99,7 @@ class AppDialogTransition {
             message: message,
             onConfirm: onConfirm,
             maxWidth: maxWidth,
+            onReject: onReject,
           );
         },
         transitionBuilder: (ctx, anim1, anim2, child) => BackdropFilter(
@@ -123,6 +125,7 @@ class AppDialogTransition {
     required String title,
     required String message,
     required Function(BuildContext) onConfirm,
+    required Function(BuildContext) onReject,
     IconData? icon,
     bool barrierDismissible = true,
     double maxWidth = 800,
@@ -139,6 +142,7 @@ class AppDialogTransition {
             onConfirm: onConfirm,
             confirmIcon: icon ?? Icons.check,
             maxWidth: maxWidth,
+            onReject: onReject,
           );
         },
         transitionBuilder: (ctx, anim1, anim2, child) => BackdropFilter(
