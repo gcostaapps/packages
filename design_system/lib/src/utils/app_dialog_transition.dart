@@ -83,10 +83,11 @@ class AppDialogTransition {
     required Function(BuildContext) onConfirm,
     bool isDelete = true,
     double maxWidth = 800,
+    bool barrierDismissible = true,
     Key? key,
   }) =>
       showGeneralDialog(
-        barrierDismissible: true,
+        barrierDismissible: barrierDismissible,
         barrierLabel: '',
         barrierColor: AppBaseColors.darkSurfaceColors,
         pageBuilder: (ctx, anim1, anim2) {
@@ -123,10 +124,11 @@ class AppDialogTransition {
     required String message,
     required Function(BuildContext) onConfirm,
     IconData? icon,
+    bool barrierDismissible = true,
     double maxWidth = 800,
   }) =>
       showGeneralDialog(
-        barrierDismissible: true,
+        barrierDismissible: barrierDismissible,
         barrierLabel: '',
         barrierColor: AppBaseColors.darkSurfaceColors,
         pageBuilder: (ctx, anim1, anim2) {

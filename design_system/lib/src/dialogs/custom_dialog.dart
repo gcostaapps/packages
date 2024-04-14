@@ -8,6 +8,7 @@ class CustomDialog extends StatelessWidget {
     required this.title,
     required this.message,
     required this.onConfirm,
+    this.onReject,
     this.isWarning = false,
     this.confirmIcon = Icons.check,
     this.maxWidth = 800,
@@ -16,6 +17,7 @@ class CustomDialog extends StatelessWidget {
   final String title;
   final String message;
   final Function(BuildContext) onConfirm;
+  final Function(BuildContext)? onReject;
   final bool isWarning;
   final IconData confirmIcon;
   final double maxWidth;
@@ -68,7 +70,11 @@ class CustomDialog extends StatelessWidget {
                       child: Material(
                         type: MaterialType.transparency,
                         child: InkWell(
-                          onTap: () => Navigator.pop(context),
+                          onTap: () async {
+                            if (onReject != null) await onReject!(context);
+                            // ignore: use_build_context_synchronously
+                            Navigator.pop(context);
+                          },
                           borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                           ),
