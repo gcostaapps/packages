@@ -53,7 +53,7 @@ class AppDialogTransition {
     Widget child, {
     bool barrierDismissible = true,
   }) =>
-      showGeneralDialog(
+      showGeneralDialog<T>(
         barrierDismissible: barrierDismissible,
         barrierLabel: '',
         barrierColor: AppBaseColors.darkSurfaceColors,
@@ -76,7 +76,7 @@ class AppDialogTransition {
         context: context,
       );
 
-  static Future<void> showWarningDialog(
+  static Future<T?> showWarningDialog<T extends Object?>(
     BuildContext context, {
     required String title,
     required String message,
@@ -87,7 +87,7 @@ class AppDialogTransition {
     bool barrierDismissible = true,
     Key? key,
   }) =>
-      showGeneralDialog(
+      showGeneralDialog<T>(
         barrierDismissible: barrierDismissible,
         barrierLabel: '',
         barrierColor: AppBaseColors.darkSurfaceColors,
@@ -120,7 +120,7 @@ class AppDialogTransition {
         context: context,
       );
 
-  static Future<void> showPrimaryDialog(
+  static Future<T?> showPrimaryDialog<T extends Object?>(
     BuildContext context, {
     required String title,
     required String message,
@@ -130,7 +130,7 @@ class AppDialogTransition {
     bool barrierDismissible = true,
     double maxWidth = 800,
   }) =>
-      showGeneralDialog(
+      showGeneralDialog<T>(
         barrierDismissible: barrierDismissible,
         barrierLabel: '',
         barrierColor: AppBaseColors.darkSurfaceColors,
@@ -163,12 +163,12 @@ class AppDialogTransition {
         context: context,
       );
 
-  static Future<void> showBlurred(
+  static Future<T?> showBlurred<T extends Object?>(
     BuildContext context,
     Widget child, {
     bool barrierDismissible = true,
   }) =>
-      showGeneralDialog(
+      showGeneralDialog<T>(
         barrierDismissible: barrierDismissible,
         barrierLabel: '',
         barrierColor: AppBaseColors.darkSurfaceColors,
