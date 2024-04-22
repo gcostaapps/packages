@@ -140,6 +140,7 @@ class AppMessageHelper {
         return FadeTransition(
           opacity: controller.controller,
           child: FlashBar(
+            surfaceTintColor: Colors.transparent,
             behavior: FlashBehavior.floating,
             controller: controller,
             position: FlashPosition.top,
