@@ -73,63 +73,65 @@ class _ClickableCardState extends State<ClickableCard>
 
     //Check if is Web Or Desktop
 
-    return GestureDetector(
-      onTapDown: (_) => _controller.forward(),
-      onTapUp: (_) => _controller.reverse(),
-      onTapCancel: () => _controller.reverse(),
-      child: InkWell(
-        mouseCursor: SystemMouseCursors.click,
-        onTap: onTap,
-        onHover: (v) => setState(() => isInHover = v),
-        onFocusChange: (v) => setState(() => isWithFocus = v),
-        splashColor: Colors.transparent,
-        focusColor: Colors.transparent,
-        hoverColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        overlayColor: MaterialStateProperty.all(Colors.transparent),
-        borderRadius:
-            widget.borderRadius ?? const BorderRadius.all(Radius.circular(4)),
-        child: AnimatedBuilder(
-          animation: _controller,
-          builder: (context, child) {
-            return Transform.scale(
-              scale: 1 - 0.03 * animation.value,
-              child: Stack(
-                children: [
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: widget.borderRadius ??
-                          const BorderRadius.all(Radius.circular(4)),
-                    ),
-                    elevation: 16 - 8 * animation.value,
-                    shadowColor: shadowColorWithOpacity,
-                    child: child,
+    return InkWell(
+      mouseCursor: SystemMouseCursors.click,
+      onTap: onTap,
+      onHighlightChanged: (isPressed) {
+        if (isPressed) {
+          _controller.forward();
+        } else {
+          _controller.reverse();
+        }
+      },
+      onHover: (v) => setState(() => isInHover = v),
+      onFocusChange: (v) => setState(() => isWithFocus = v),
+      splashColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      overlayColor: MaterialStateProperty.all(Colors.transparent),
+      borderRadius:
+          widget.borderRadius ?? const BorderRadius.all(Radius.circular(4)),
+      child: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          return Transform.scale(
+            scale: 1 - 0.03 * animation.value,
+            child: Stack(
+              children: [
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: widget.borderRadius ??
+                        const BorderRadius.all(Radius.circular(4)),
                   ),
-                  if (isFocused && DeviceOS.isDesktopOrWeb)
-                    IgnorePointer(
-                      ignoring: true,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.onSurface.withOpacity(0.02),
-                          border: Border.all(
-                              width: 1,
-                              color:
-                                  theme.colorScheme.onSurface.withOpacity(0.5)),
-                          borderRadius: widget.borderRadius ??
-                              const BorderRadius.all(Radius.circular(4)),
-                        ),
-                        child: Opacity(
-                          opacity: 0,
-                          child: child,
-                        ),
+                  elevation: 16 - 8 * animation.value,
+                  shadowColor: shadowColorWithOpacity,
+                  child: child,
+                ),
+                if (isFocused && DeviceOS.isDesktopOrWeb)
+                  IgnorePointer(
+                    ignoring: true,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.onSurface.withOpacity(0.02),
+                        border: Border.all(
+                            width: 1,
+                            color:
+                                theme.colorScheme.onSurface.withOpacity(0.5)),
+                        borderRadius: widget.borderRadius ??
+                            const BorderRadius.all(Radius.circular(4)),
+                      ),
+                      child: Opacity(
+                        opacity: 0,
+                        child: child,
                       ),
                     ),
-                ],
-              ),
-            );
-          },
-          child: widget.child,
-        ),
+                  ),
+              ],
+            ),
+          );
+        },
+        child: widget.child,
       ),
     );
   }

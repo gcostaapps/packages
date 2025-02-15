@@ -13,14 +13,29 @@ final clickableCardStory = Story(
       onTap: () => {},
       shadowColor: colorful ? theme.primaryColorLight : null,
       child: Container(
-        width: 160,
-        height: 160,
-        decoration: BoxDecoration(
-          color: colorful
-              ? Theme.of(context).primaryColor
-              : Theme.of(context).cardColor,
-        ),
-      ),
+          width: 320,
+          height: 320,
+          decoration: BoxDecoration(
+            color: colorful
+                ? Theme.of(context).primaryColor
+                : Theme.of(context).cardColor,
+          ),
+          child: Column(
+            children: [
+              Text('Test'),
+              ClickableCard(
+                onTap: () => {},
+                shadowColor: Colors.purple,
+                child: Container(
+                  width: 160,
+                  height: 160,
+                  decoration: const BoxDecoration(
+                    color: Colors.purple,
+                  ),
+                ),
+              ),
+            ],
+          )),
     );
   },
 );
