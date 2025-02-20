@@ -25,6 +25,8 @@ final elevatedButtonStory = Story(
       options: const [
         Option(label: 'Right', value: IconPosition.right),
         Option(label: 'Left', value: IconPosition.left),
+        Option(label: 'Right Center', value: IconPosition.rightCenter),
+        Option(label: 'Left Center', value: IconPosition.leftCenter),
       ],
     );
     final icon = context.knobs.options<IconData?>(
