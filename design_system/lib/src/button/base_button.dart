@@ -21,6 +21,7 @@ class BaseButton extends StatelessWidget {
     required this.enabled,
     this.iconData,
     this.isPrimary = true,
+    this.loading = false,
     required this.wide,
     this.textColor,
     this.buttonSize = ButtonSize.medium,
@@ -32,6 +33,7 @@ class BaseButton extends StatelessWidget {
   final IconData? iconData;
   final bool isPrimary;
   final bool wide;
+  final bool loading;
   final Color? textColor;
   final ButtonSize buttonSize;
 
@@ -108,20 +110,45 @@ class BaseButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: wide ? MainAxisSize.max : MainAxisSize.min,
-            children: [
-              if (iconData != null)
-                SizedBox(
-                  width: (hasLeftIcon || wide) && !hasRightIcon ? iconSize : 0,
-                  child: hasLeftIcon ? icon : null,
-                ),
-              if (wide && !hasCenterIcon) Expanded(child: textWidget),
-              if (!wide || hasCenterIcon) Flexible(child: textWidget),
-              if (iconData != null)
-                SizedBox(
-                  width: (hasRightIcon || wide) && !hasLeftIcon ? iconSize : 0,
-                  child: hasRightIcon ? icon : null,
-                ),
-            ],
+            children: loading
+                ? [
+                    SizedBox(
+                      width: 24,
+                      height: 24,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        valueColor: AlwaysStoppedAnimation<Color>(buttonColor),
+                      ),
+                    ),
+                  ]
+                : [
+                    if (iconData != null)
+                      SizedBox(
+                        width: (hasLeftIcon || wide) && !hasRightIcon
+                            ? iconSize
+                            : 0,
+                        child: hasLeftIcon ? icon : null,
+                      ),
+                    if (wide && !hasCenterIcon) Expanded(child: textWidget),
+                    if (!wide || hasCenterIcon) Flexible(child: textWidget),
+                    if (iconData != null)
+                      SizedBox(
+                        width: (hasRightIcon || wide) && !hasLeftIcon
+                            ? iconSize
+                            : 0,
+                        child: hasRightIcon ? icon : null,
+                      ),
+                    if (loading)
+                      SizedBox(
+                        width: 24,
+                        height: 24,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(buttonColor),
+                        ),
+                      ),
+                  ],
           ),
         ),
       ),

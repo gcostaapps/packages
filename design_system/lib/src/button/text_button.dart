@@ -10,6 +10,7 @@ class CustomTextButton extends StatelessWidget {
     this.iconData,
     this.padding,
     this.wide = false,
+    this.loading = false,
     this.textColor,
   });
 
@@ -19,11 +20,12 @@ class CustomTextButton extends StatelessWidget {
   final IconData? iconData;
   final EdgeInsets? padding;
   final bool wide;
+  final bool loading;
   final Color? textColor;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: loading ? () {} : onTap,
       child: Padding(
         padding: padding ?? const EdgeInsets.symmetric(vertical: 4),
         child: BaseButton(
@@ -34,6 +36,7 @@ class CustomTextButton extends StatelessWidget {
           isPrimary: false,
           iconData: iconData,
           textColor: textColor,
+          loading: loading,
         ),
       ),
     );

@@ -10,6 +10,7 @@ class CustomElevatedButton extends StatelessWidget {
     this.onTap,
     this.iconData,
     this.wide = true,
+    this.loading = false,
     this.buttonSize = ButtonSize.medium,
     this.isPrimary = true,
     this.borderRadius = 12,
@@ -21,6 +22,7 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback? onTap;
   final IconData? iconData;
   final bool wide;
+  final bool loading;
   final ButtonSize buttonSize;
   final bool isPrimary;
   final double borderRadius;
@@ -43,7 +45,7 @@ class CustomElevatedButton extends StatelessWidget {
     return ClickableCard(
       borderRadius: BorderRadius.circular(borderRadius),
       shadowColor: shadowColor,
-      onTap: onTap,
+      onTap: loading ? null : onTap,
       child: Container(
         decoration: BoxDecoration(
           color: onTap != null
@@ -62,6 +64,7 @@ class CustomElevatedButton extends StatelessWidget {
           isPrimary: isPrimary || color != null,
           iconData: iconData,
           buttonSize: buttonSize,
+          loading: loading,
         ),
       ),
     );

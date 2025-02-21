@@ -11,6 +11,7 @@ class CustomOutlinedButton extends StatelessWidget {
     this.onTap,
     this.iconData,
     this.wide = true,
+    this.loading = false,
     this.buttonSize = ButtonSize.medium,
     this.isPrimary = true,
     this.radius = 6,
@@ -22,6 +23,7 @@ class CustomOutlinedButton extends StatelessWidget {
   final VoidCallback? onTap;
   final IconData? iconData;
   final bool wide;
+  final bool loading;
   final ButtonSize buttonSize;
   final bool isPrimary;
   final double radius;
@@ -31,7 +33,7 @@ class CustomOutlinedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: InkWell(
-        onTap: onTap,
+        onTap: loading ? () {} : onTap,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(radius),
           child: Ink(
@@ -61,6 +63,7 @@ class CustomOutlinedButton extends StatelessWidget {
               isPrimary: isPrimary || color != null,
               iconData: iconData,
               buttonSize: buttonSize,
+              loading: loading,
             ),
           ),
         ),

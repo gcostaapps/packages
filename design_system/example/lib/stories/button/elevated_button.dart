@@ -8,6 +8,7 @@ final elevatedButtonStory = Story(
     final enabled = context.knobs.boolean(label: 'Enabled', initial: true);
     final radius =
         context.knobs.slider(label: 'Radius', initial: 50, min: 0, max: 50);
+    final loading = context.knobs.boolean(label: 'Loading', initial: false);
     final wide = context.knobs.boolean(label: 'Wide', initial: true);
     final primary = context.knobs.boolean(label: 'Primary', initial: true);
     final text = context.knobs.text(label: 'Text', initial: 'CONTINUAR');
@@ -57,6 +58,7 @@ final elevatedButtonStory = Story(
       isPrimary: primary,
       borderRadius: radius,
       color: color,
+      loading: loading,
     );
   },
 );
