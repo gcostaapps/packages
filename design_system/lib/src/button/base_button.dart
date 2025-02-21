@@ -70,10 +70,23 @@ class BaseButton extends StatelessWidget {
           )
         : null;
 
+    final hasCenterIcon = iconPosition == IconPosition.centerLeft ||
+        iconPosition == IconPosition.centerRight && iconData != null;
+    final hasLeftIcon = iconPosition == IconPosition.left ||
+        iconPosition == IconPosition.centerLeft;
+    final hasRightIcon = iconPosition == IconPosition.right ||
+        iconPosition == IconPosition.centerRight;
+
+    final textPadding = hasCenterIcon
+        ? EdgeInsets.only(
+            left: iconPosition == IconPosition.centerLeft ? iconPadding : 0,
+            right: iconPosition == IconPosition.centerRight ? iconPadding : 0)
+        : iconData == null
+            ? EdgeInsets.all(0)
+            : EdgeInsets.symmetric(horizontal: iconPadding);
+
     final textWidget = Padding(
-      padding: iconData == null
-          ? const EdgeInsets.all(0)
-          : EdgeInsets.symmetric(horizontal: iconPadding),
+      padding: textPadding,
       child: Text(
         text,
         overflow: TextOverflow.ellipsis,
@@ -84,13 +97,6 @@ class BaseButton extends StatelessWidget {
         ),
       ),
     );
-
-    final hasCenterIcon = iconPosition == IconPosition.centerLeft ||
-        iconPosition == IconPosition.centerRight && iconData != null;
-    final hasLeftIcon = iconPosition == IconPosition.left ||
-        iconPosition == IconPosition.centerLeft;
-    final hasRightIcon = iconPosition == IconPosition.right ||
-        iconPosition == IconPosition.centerRight;
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
