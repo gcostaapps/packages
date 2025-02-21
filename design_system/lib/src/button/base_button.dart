@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 enum IconPosition {
   right,
   left,
-  rightCenter,
-  leftCenter,
+  centerRight,
+  centerLeft,
 }
 
 enum ButtonSize {
@@ -85,12 +85,12 @@ class BaseButton extends StatelessWidget {
       ),
     );
 
-    final hasCenterIcon = iconPosition == IconPosition.leftCenter ||
-        iconPosition == IconPosition.rightCenter && iconData != null;
+    final hasCenterIcon = iconPosition == IconPosition.centerLeft ||
+        iconPosition == IconPosition.centerRight && iconData != null;
     final hasLeftIcon = iconPosition == IconPosition.left ||
-        iconPosition == IconPosition.leftCenter;
+        iconPosition == IconPosition.centerLeft;
     final hasRightIcon = iconPosition == IconPosition.right ||
-        iconPosition == IconPosition.rightCenter;
+        iconPosition == IconPosition.centerRight;
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -105,14 +105,14 @@ class BaseButton extends StatelessWidget {
             children: [
               if (iconData != null)
                 SizedBox(
-                  width: hasLeftIcon || wide ? iconSize : 0,
+                  width: (hasLeftIcon || wide) && !hasRightIcon ? iconSize : 0,
                   child: hasLeftIcon ? icon : null,
                 ),
               if (wide && !hasCenterIcon) Expanded(child: textWidget),
               if (!wide || hasCenterIcon) Flexible(child: textWidget),
               if (iconData != null)
                 SizedBox(
-                  width: hasRightIcon || wide ? iconSize : 0,
+                  width: (hasRightIcon || wide) && !hasLeftIcon ? iconSize : 0,
                   child: hasRightIcon ? icon : null,
                 ),
             ],
