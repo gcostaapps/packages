@@ -55,7 +55,7 @@ class _ClickableCardState extends State<ClickableCard>
     final theme = Theme.of(context);
 
     final shadowColorWithOpacity = widget.shadowColor?.withOpacity(
-      theme.brightness == Brightness.light ? 0.3 : 0.05,
+      theme.brightness == Brightness.light ? 0.3 : 0.2,
     );
 
     if (widget.onTap == null) {
