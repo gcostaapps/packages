@@ -1,5 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:services_core/services_core.dart';
 
 class ClickableCard extends StatefulWidget {
   const ClickableCard({
@@ -108,7 +108,9 @@ class _ClickableCardState extends State<ClickableCard>
                   shadowColor: shadowColorWithOpacity,
                   child: child,
                 ),
-                if (isFocused && DeviceOS.isDesktopOrWeb)
+                if (isFocused && kIsWeb ||
+                    defaultTargetPlatform == TargetPlatform.macOS ||
+                    defaultTargetPlatform == TargetPlatform.windows)
                   IgnorePointer(
                     ignoring: true,
                     child: DecoratedBox(
