@@ -2,7 +2,6 @@ library services_core;
 
 export 'src/analytics/analytics_event.dart';
 export 'src/analytics/analytics_property.dart';
-export 'src/analytics/analytics_service.dart';
 export 'src/analytics/i_analytics_service.dart';
 
 export 'src/device_info/device_info.dart';

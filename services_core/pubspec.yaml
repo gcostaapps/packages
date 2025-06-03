@@ -9,19 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  #Logs
-  logger: ^2.0.2+1
-  #Analytics
-  mixpanel_flutter: ^2.2.0
-  firebase_analytics: ^10.7.4
-  #Configuration
-  flutter_dotenv: ^5.1.0
-  #Local Storage
-  shared_preferences: ^2.2.2
   #Device Info
   universal_platform: ^1.0.0+1
-  #Purchases
-  purchases_flutter: ^6.5.1
   #Url Launcher
   url_launcher: ^6.2.2
   
@@ -31,4 +20,3 @@ dev_dependencies:
   flutter_lints: ^3.0.1
 
 
-flutter:
