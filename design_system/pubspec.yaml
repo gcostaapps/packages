@@ -14,10 +14,7 @@ dependencies:
   statsfl: ^2.3.0 #Perfomance Monitoring
   loader_overlay: ^4.0.0 #Loader Overlay
   flash: ^3.1.0  #Used for display helper (success/error) messages 
-  services_core:
-    git:
-      url: https://github.com/gcostaapps/packages.git
-      path: services_core/
+  
     
 
 dev_dependencies:
